@@ -10,14 +10,18 @@ import { Appearance } from "react-native";
 
 import { themes } from "@/constants";
 
-const ThemeContext = createContext<any>(null);
+const ThemeContext = createContext<{
+  theme: typeof themes.dark;
+  toggleTheme: () => void;
+  mode: "light" | "dark";
+} | null>(null);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState(Appearance.getColorScheme() || "light");
+  const [theme, setTheme] = useState(Appearance.getColorScheme() ?? "light");
 
   useEffect(() => {
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-      setTheme(colorScheme || "light");
+      setTheme(colorScheme ?? "light");
     });
     return () => subscription.remove();
   }, []);
