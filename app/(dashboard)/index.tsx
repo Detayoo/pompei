@@ -2,6 +2,7 @@ import { View } from "react-native";
 
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const DashboardPage = () => {
   const { theme } = useTheme();
