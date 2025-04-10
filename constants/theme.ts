@@ -13,7 +13,7 @@ export const themes = {
     text: "#FFFFFF",
     primary: "#BB86FC",
     secondary: "#03DAC6",
-    border: "#424242",
+    border: "#aaaaaa",
     buttonText: "#fff",
     black: "#000",
   },

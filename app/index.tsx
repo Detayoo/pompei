@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { useTheme } from "@/contexts";
 import { PrimaryButton } from "@/components";
@@ -20,7 +20,7 @@ export default function Index() {
       </Text>
       <PrimaryButton
         title="Go to dashboard"
-        onPress={() => router.push("/(dashboard)/index")}
+        onPress={() => router.push("/(dashboard)")}
       />
     </View>
   );

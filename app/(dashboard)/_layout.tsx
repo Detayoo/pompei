@@ -38,7 +38,7 @@ const TabBarIcon = ({
       }}
     >
       <Ionicons name={focused ? icon : activeIcon} size={24} color={color} />
-      <AppText size='small' color={color} title={routeName}></AppText>
+      <AppText size="small" color={color} title={routeName}></AppText>
     </View>
   );
 };
@@ -46,7 +46,14 @@ const TabBarIcon = ({
 const DashboardLayout = () => {
   const { theme } = useTheme();
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: theme.background,
+          borderTopColor: "transparent",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -59,7 +66,7 @@ const DashboardLayout = () => {
               activeIcon="home-outline"
               icon="home"
               routeName="Home"
-              color={focused ? theme.black : theme.border}
+              color={focused ? theme.text : theme.border}
             />
           ),
         }}
@@ -76,7 +83,7 @@ const DashboardLayout = () => {
               activeIcon="cart-outline"
               icon="cart"
               routeName="Orders"
-              color={focused ? theme.black : theme.border}
+              color={focused ? theme.text : theme.border}
             />
           ),
         }}
@@ -93,7 +100,7 @@ const DashboardLayout = () => {
               activeIcon="settings-outline"
               icon="settings"
               routeName="Settings"
-              color={focused ? theme.black : theme.border}
+              color={focused ? theme.text : theme.border}
             />
           ),
         }}

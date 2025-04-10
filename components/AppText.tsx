@@ -32,6 +32,8 @@ export const AppText = ({
             ? sizes[size as keyof typeof sizes]
             : 16,
       }}
-    />
+    >
+      {title}
+    </Text>
   );
 };
