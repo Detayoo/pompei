@@ -5,10 +5,12 @@ import { useTheme } from "@/contexts";
 export const AppText = ({
   title,
   style,
+  color,
 }: {
   title: string;
   style?: TextProps;
+  color?: string;
 }) => {
   const { theme } = useTheme();
-  return <Text style={{ ...style, color: theme.text }}>{title}</Text>;
+  return <Text style={{ ...style, color: color ?? theme.text }}>{title}</Text>;
 };

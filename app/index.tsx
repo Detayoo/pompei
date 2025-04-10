@@ -19,8 +19,8 @@ export default function Index() {
         Welcome page that the user sees by opening my app
       </Text>
       <PrimaryButton
-        title="Go to Login"
-        onPress={() => router.push("/login")}
+        title="Go to dashboard"
+        onPress={() => router.push("/(dashboard)/index")}
       />
     </View>
   );

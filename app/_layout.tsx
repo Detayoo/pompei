@@ -8,7 +8,15 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <StatusBar barStyle="default" />
-      <Stack screenOptions={{ headerShown: false }}></Stack>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="(dashboard)"
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+        />
+      </Stack>
     </ThemeProvider>
   );
 }
