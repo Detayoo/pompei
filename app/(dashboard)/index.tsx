@@ -1,4 +1,5 @@
 import { View } from "react-native";
+
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
 
@@ -13,7 +14,7 @@ const DashboardPage = () => {
         backgroundColor: theme.background,
       }}
     >
-      <AppText title="APPTEXT" />
+      <AppText title="Hey there. Welcome" size="small" />
     </View>
   );
 };

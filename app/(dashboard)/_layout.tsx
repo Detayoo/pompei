@@ -32,12 +32,13 @@ const TabBarIcon = ({
         marginTop: 30,
         width: 200,
         height: 50,
+        gap: 2,
         justifyContent: "center",
         alignItems: "center",
       }}
     >
       <Ionicons name={focused ? icon : activeIcon} size={24} color={color} />
-      <AppText color={color} title={routeName}></AppText>
+      <AppText size='small' color={color} title={routeName}></AppText>
     </View>
   );
 };
@@ -50,7 +51,7 @@ const DashboardLayout = () => {
         name="index"
         options={{
           ...genericOptions,
-          tabBarLabelStyle: { fontSize: 18, display: "none" },
+          tabBarLabelStyle: { fontSize: 12, display: "none" },
           title: "Dashboard",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
@@ -67,7 +68,7 @@ const DashboardLayout = () => {
         name="orders"
         options={{
           ...genericOptions,
-          tabBarLabelStyle: { fontSize: 18, display: "none" },
+          tabBarLabelStyle: { fontSize: 12, display: "none" },
           title: "Orders",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
@@ -84,7 +85,7 @@ const DashboardLayout = () => {
         name="settings"
         options={{
           ...genericOptions,
-          tabBarLabelStyle: { fontSize: 18, display: "none" },
+          tabBarLabelStyle: { fontSize: 12, display: "none" },
           title: "Settings",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
