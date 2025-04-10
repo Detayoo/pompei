@@ -4,8 +4,9 @@ export const themes = {
     text: "#000000",
     primary: "#6200EE",
     secondary: "#03DAC6",
-    border: "#E0E0E0",
+    border: "#c0c0c0",
     buttonText: "#fff",
+    black: "#000",
   },
   dark: {
     background: "#121212",
@@ -14,5 +15,6 @@ export const themes = {
     secondary: "#03DAC6",
     border: "#424242",
     buttonText: "#fff",
+    black: "#000",
   },
 };

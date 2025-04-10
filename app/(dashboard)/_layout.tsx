@@ -36,7 +36,7 @@ const TabBarIcon = ({
         alignItems: "center",
       }}
     >
-      <Ionicons name={focused ? activeIcon : icon} size={24} />
+      <Ionicons name={focused ? icon : activeIcon} size={24} color={color} />
       <AppText color={color} title={routeName}></AppText>
     </View>
   );
@@ -58,9 +58,26 @@ const DashboardLayout = () => {
               activeIcon="home-outline"
               icon="home"
               routeName="Home"
+              color={focused ? theme.black : theme.border}
             />
           ),
-          tabBarStyle: { padding: 50 },
+        }}
+      />
+      <Tabs.Screen
+        name="orders"
+        options={{
+          ...genericOptions,
+          tabBarLabelStyle: { fontSize: 18, display: "none" },
+          title: "Orders",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon
+              focused={focused}
+              activeIcon="cart-outline"
+              icon="cart"
+              routeName="Orders"
+              color={focused ? theme.black : theme.border}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -75,10 +92,9 @@ const DashboardLayout = () => {
               activeIcon="settings-outline"
               icon="settings"
               routeName="Settings"
-              color={focused ? theme.secondary : theme.border}
+              color={focused ? theme.black : theme.border}
             />
           ),
-          tabBarStyle: { padding: 70 }, // Added padding to the tab bar container
         }}
       />
     </Tabs>
