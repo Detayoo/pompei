@@ -11,7 +11,7 @@ import { Appearance } from "react-native";
 import { themes } from "@/constants";
 
 const ThemeContext = createContext<{
-  theme: typeof themes.dark;
+  theme: typeof themes.light;
   toggleTheme: () => void;
   mode: "light" | "dark";
 } | null>(null);

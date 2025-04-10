@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { Button, Text, View } from "react-native";
 
 import { useTheme } from "@/contexts";
+import { PrimaryButton } from "@/components";
 
 export default function Index() {
   const { theme } = useTheme();
@@ -17,7 +18,10 @@ export default function Index() {
       <Text style={{ color: theme.text }}>
         Welcome page that the user sees by opening my app
       </Text>
-      <Button title="Login" onPress={() => router.push("/login")}></Button>
+      <PrimaryButton
+        title="Go to Login"
+        onPress={() => router.push("/login")}
+      />
     </View>
   );
 }
