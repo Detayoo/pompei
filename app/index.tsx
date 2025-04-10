@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import { router } from "expo-router";
+import { Button, Text, View } from "react-native";
 
 export default function Index() {
   return (
@@ -10,7 +11,8 @@ export default function Index() {
         backgroundColor: "#fff",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>Welcome page that the user sees by opening my app</Text>
+      <Button title="Login" onPress={() => router.push("/login")}></Button>
     </View>
   );
 }
