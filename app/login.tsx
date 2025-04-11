@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { PrimaryButton, TextField } from "@/components";
+import { PasswordField, PrimaryButton, TextField } from "@/components";
 import { useTheme } from "@/contexts";
 import { loginSchema } from "@/validators";
 
@@ -40,11 +40,12 @@ const LoginPage = () => {
         placeholder="Enter your email"
         error={errors?.email?.message}
       />
-      <TextField
+      <PasswordField
         name="password"
         control={control}
         placeholder="Enter password"
         error={errors?.password?.message}
+        secureTextEntry
       />
       <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
     </View>
