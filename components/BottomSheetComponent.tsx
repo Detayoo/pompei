@@ -2,22 +2,25 @@ import React, { ReactNode, RefObject, useCallback } from "react";
 import { StatusBar } from "react-native";
 import BottomSheet, {
   BottomSheetBackdrop,
+  BottomSheetModal,
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { BottomSheetMethods } from "@gorhom/bottom-sheet/lib/typescript/types";
 
-export const BottomModal = ({
+export const BottomSheetComponent = ({
   sheetRef,
   snapPoints = ["50%", "60%"],
   closeModal,
   showModal,
   children,
+  onChange,
 }: {
-  sheetRef: RefObject<BottomSheetMethods> | null | undefined;
+  sheetRef: RefObject<any> | null | undefined;
   snapPoints: string[];
   closeModal: () => void;
   showModal: boolean;
   children: ReactNode;
+  onChange?: () => void;
 }) => {
   const renderBackdrop = useCallback(
     (props: any) => (
@@ -30,20 +33,19 @@ export const BottomModal = ({
     []
   );
 
-  //   if (!showModal) return null;
-
   return (
     <>
       <StatusBar
         barStyle="default"
         backgroundColor={showModal ? "rgba(0, 0, 0, 0.5)" : ""}
       />
-      <BottomSheet
+      <BottomSheetModal
         ref={sheetRef}
-        snapPoints={snapPoints}
+        // snapPoints={snapPoints}
         enablePanDownToClose
-        onClose={closeModal}
+        // onClose={closeModal}
         backdropComponent={renderBackdrop}
+        onChange={onChange}
       >
         <BottomSheetScrollView
           contentContainerStyle={{
@@ -55,7 +57,7 @@ export const BottomModal = ({
         >
           {children}
         </BottomSheetScrollView>
-      </BottomSheet>
+      </BottomSheetModal>
     </>
   );
 };

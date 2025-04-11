@@ -26,6 +26,6 @@ export const handleModal = ({
   index?: number;
   openModal: () => void;
 }) => {
-  openModal();
   ref.current?.snapToIndex(index);
+  openModal();
 };

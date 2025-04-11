@@ -12,7 +12,7 @@ export default function Index() {
   const { theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
+  // console.log(isOpen);
 
   return (
     <View
@@ -52,7 +52,6 @@ export default function Index() {
       >
         <AppText title="Hey there" />
         <View style={{ height: 500 }}></View>
-        <AppText title="Hey there" />
       </BottomModal>
     </View>
   );
