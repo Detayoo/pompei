@@ -4,6 +4,7 @@ import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   useFonts,
+  Geist_200ExtraLight as GeistExtraLight,
   Geist_400Regular as GeistRegular,
   Geist_500Medium as GeistMedium,
   Geist_600SemiBold as GeistSemiBold,
@@ -17,6 +18,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   let [fontsLoaded] = useFonts({
+    GeistExtraLight,
     GeistRegular,
     GeistMedium,
     GeistSemiBold,

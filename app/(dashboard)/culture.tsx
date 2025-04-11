@@ -2,12 +2,12 @@ import { View } from "react-native";
 
 import { AppText } from "@/components";
 
-const Settings = () => {
+const CulturePage = () => {
   return (
     <View>
-      <AppText title="SETTINGS PAGE"></AppText>
+      <AppText title="Culture Page"></AppText>
     </View>
   );
 };
 
-export default Settings;
+export default CulturePage;

@@ -65,7 +65,7 @@ const DashboardLayout = () => {
               focused={focused}
               activeIcon="home-outline"
               icon="home"
-              routeName="Home"
+              routeName="For You"
               color={focused ? theme.text : theme.border}
             />
           ),
@@ -80,26 +80,26 @@ const DashboardLayout = () => {
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
               focused={focused}
-              activeIcon="cart-outline"
-              icon="cart"
-              routeName="Orders"
+              activeIcon="bag-outline"
+              icon="bag"
+              routeName="Shop"
               color={focused ? theme.text : theme.border}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="culture"
         options={{
           ...genericOptions,
           tabBarLabelStyle: { fontSize: 12, display: "none" },
-          title: "Settings",
+          title: "Culture",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
               focused={focused}
-              activeIcon="settings-outline"
-              icon="settings"
-              routeName="Settings"
+              activeIcon="book-outline"
+              icon="book"
+              routeName="Culture"
               color={focused ? theme.text : theme.border}
             />
           ),

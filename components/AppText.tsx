@@ -1,12 +1,18 @@
-import { StyleProp, Text, TextStyle, TextProps } from "react-native";
+import { Text, TextStyle } from "react-native";
 
 import { useTheme } from "@/contexts";
+import { fonts } from "@/constants";
+
+type Fonts = keyof fonts;
 
 const sizes = {
   xsmall: 12,
   small: 14,
   medium: 16,
   large: 20,
+  xlarge: 24,
+  xxlarge: 28,
+  xxxlarge: 32,
 };
 
 export const AppText = ({

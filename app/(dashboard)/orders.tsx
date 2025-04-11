@@ -14,7 +14,7 @@ const OrdersPage = () => {
         backgroundColor: theme.background,
       }}
     >
-      <AppText title="Orders Page"></AppText>
+      <AppText title="Shop Page"></AppText>
     </View>
   );
 };

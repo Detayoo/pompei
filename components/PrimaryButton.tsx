@@ -16,7 +16,7 @@ export const PrimaryButton = ({ title, onPress }: ButtonProps) => {
     <Pressable
       onPress={onPress}
       style={{
-        backgroundColor: theme.primary,
+        backgroundColor: theme.buttonBg,
         paddingVertical: 16,
         borderRadius: 5,
         width: "100%",
