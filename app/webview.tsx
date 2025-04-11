@@ -15,6 +15,7 @@ const WebViewPage = () => {
       style={{
         paddingTop: useSafeAreaInsets().top,
         backgroundColor: theme.background,
+        flex: 1,
       }}
     />
   );

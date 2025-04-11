@@ -3,6 +3,7 @@ import { router } from "expo-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import * as WebBrowser from "expo-web-browser";
 
 import { PasswordField, PrimaryButton, TextField } from "@/components";
 import { useTheme } from "@/contexts";
@@ -51,6 +52,12 @@ const LoginPage = () => {
       <PrimaryButton
         title="Open WebView"
         onPress={() => router.push("/webview?url=https://adedigba.vercel.app")}
+      />
+      <PrimaryButton
+        title="Open web browser"
+        onPress={async () =>
+          await WebBrowser.openBrowserAsync("https://adedigba.vercel.app")
+        }
       />
     </View>
   );
