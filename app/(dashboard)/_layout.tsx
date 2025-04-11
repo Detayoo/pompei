@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Platform, StatusBar, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
@@ -29,7 +29,7 @@ const TabBarIcon = ({
         padding: 5,
         // flexDirection: "row",
         // backgroundColor: "red",
-        marginTop: 30,
+        marginTop: 10,
         width: 200,
         height: 50,
         gap: 2,
@@ -37,75 +37,82 @@ const TabBarIcon = ({
         alignItems: "center",
       }}
     >
-      <Ionicons name={focused ? icon : activeIcon} size={24} color={color} />
+      <Ionicons name={focused ? icon : activeIcon} size={20} color={color} />
       <AppText size="small" color={color} title={routeName}></AppText>
     </View>
   );
 };
 
 const DashboardLayout = () => {
-  const { theme } = useTheme();
+  const { theme, mode } = useTheme();
+
   return (
-    <Tabs
-      screenOptions={{
-        tabBarStyle: {
-          backgroundColor: theme.background,
-          borderTopColor: "transparent",
-        },
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          ...genericOptions,
-          tabBarLabelStyle: { fontSize: 12, display: "none" },
-          title: "Dashboard",
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              focused={focused}
-              activeIcon="star-outline"
-              icon="star"
-              routeName="For You"
-              color={focused ? theme.text : theme.border}
-            />
-          ),
-        }}
+    <>
+      <StatusBar
+        barStyle="default"
+        backgroundColor={mode === "light" ? "#fff" : "#000"}
       />
-      <Tabs.Screen
-        name="orders"
-        options={{
-          ...genericOptions,
-          tabBarLabelStyle: { fontSize: 12, display: "none" },
-          title: "Orders",
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              focused={focused}
-              activeIcon="bag-outline"
-              icon="bag"
-              routeName="Shop"
-              color={focused ? theme.text : theme.border}
-            />
-          ),
+      <Tabs
+        screenOptions={{
+          tabBarStyle: {
+            backgroundColor: theme.background,
+            borderTopColor: "transparent",
+          },
         }}
-      />
-      <Tabs.Screen
-        name="culture"
-        options={{
-          ...genericOptions,
-          tabBarLabelStyle: { fontSize: 12, display: "none" },
-          title: "Culture",
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              focused={focused}
-              activeIcon="book-outline"
-              icon="book"
-              routeName="Culture"
-              color={focused ? theme.text : theme.border}
-            />
-          ),
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            ...genericOptions,
+            tabBarLabelStyle: { fontSize: 12, display: "none" },
+            title: "Dashboard",
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon
+                focused={focused}
+                activeIcon="star-outline"
+                icon="star"
+                routeName="For You"
+                color={focused ? theme.text : theme.border}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="orders"
+          options={{
+            ...genericOptions,
+            tabBarLabelStyle: { fontSize: 12, display: "none" },
+            title: "Orders",
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon
+                focused={focused}
+                activeIcon="bag-outline"
+                icon="bag"
+                routeName="Shop"
+                color={focused ? theme.text : theme.border}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="culture"
+          options={{
+            ...genericOptions,
+            tabBarLabelStyle: { fontSize: 12, display: "none" },
+            title: "Culture",
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon
+                focused={focused}
+                activeIcon="book-outline"
+                icon="book"
+                routeName="Culture"
+                color={focused ? theme.text : theme.border}
+              />
+            ),
+          }}
+        />
+      </Tabs>
+    </>
   );
 };
 export default DashboardLayout;

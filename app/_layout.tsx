@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack } from "expo-router";
-import { StatusBar } from "react-native";
+import { Appearance, StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   useFonts,
@@ -17,6 +17,7 @@ import { ThemeProvider } from "@/contexts";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const mode = Appearance.getColorScheme() ?? "light";
   let [fontsLoaded] = useFonts({
     GeistExtraLight,
     GeistRegular,
@@ -33,7 +34,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <StatusBar barStyle="default" />
+        <StatusBar
+          barStyle="default"
+          backgroundColor={mode === "light" ? "#fff" : "#000"}
+        />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen
             name="(dashboard)"

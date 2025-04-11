@@ -1,4 +1,5 @@
 export * from "./theme";
+export * from "./sizes";
 
 export type fonts = {
   GeistExtraLight: "GeistExtraLight";
