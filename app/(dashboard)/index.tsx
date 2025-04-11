@@ -1,12 +1,40 @@
-import { Image, ScrollView, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { AppText } from "@/components";
+import { AppText, PrimaryButton } from "@/components";
 import { useTheme } from "@/contexts";
-import { sizes } from "@/constants";
+import { DEFAULT__SNAPPOINTS, sizes } from "@/constants";
+import {
+  BottomSheetBackdrop,
+  BottomSheetModal,
+  BottomSheetView,
+} from "@gorhom/bottom-sheet";
+import { useCallback, useRef } from "react";
 
 const DashboardPage = () => {
   const { theme } = useTheme();
+
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log("handleSheetChanges", index);
+  }, []);
+
+  const renderBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={1}
+      />
+    ),
+    []
+  );
+
   return (
     <View
       style={{
@@ -80,6 +108,27 @@ const DashboardPage = () => {
           style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
         />
       </ScrollView>
+      <PrimaryButton title="Show" onPress={handlePresentModalPress} />
+
+      <BottomSheetModal
+        onDismiss={() => {}}
+        // snapPoints={DEFAULT__SNAPPOINTS}
+        snapPoints={["25%", "70%", "90%"]}
+        ref={bottomSheetModalRef}
+        onChange={handleSheetChanges}
+        backdropComponent={renderBackdrop}
+      >
+        <BottomSheetView
+          style={{
+            flexGrow: 1,
+            paddingHorizontal: 16,
+          }}
+        >
+          <ScrollView contentContainerStyle={{ flex: 1 }}>
+            <Text>Awesome 🎉</Text>
+          </ScrollView>
+        </BottomSheetView>
+      </BottomSheetModal>
     </View>
   );
 };
