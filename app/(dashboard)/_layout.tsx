@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, StatusBar, View } from "react-native";
+import { StatusBar, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
@@ -28,8 +28,6 @@ const TabBarIcon = ({
     <View
       style={{
         padding: 5,
-        // flexDirection: "row",
-        // backgroundColor: "red",
         marginTop: 10,
         width: 200,
         height: 50,
@@ -59,7 +57,6 @@ const DashboardLayout = () => {
         screenOptions={{
           tabBarStyle: {
             backgroundColor: theme.background,
-            borderTopColor: "transparent",
             borderTopWidth: 0,
           },
         }}

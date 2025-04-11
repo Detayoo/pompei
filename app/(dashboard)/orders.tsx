@@ -1,21 +1,10 @@
-import { View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
-import { AppText } from "@/components";
-import { useTheme } from "@/contexts";
+import { AppText, Screen } from "@/components";
 
 const OrdersPage = () => {
-  const { theme } = useTheme();
   return (
-    <View
-      style={{
-        flex: 1,
-        paddingTop: useSafeAreaInsets().top,
-        backgroundColor: theme.background,
-      }}
-    >
+    <Screen>
       <AppText title="Shop Page"></AppText>
-    </View>
+    </Screen>
   );
 };
 
