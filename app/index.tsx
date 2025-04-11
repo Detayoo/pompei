@@ -1,11 +1,12 @@
-import { router } from "expo-router";
 import { Text, View } from "react-native";
+import { router } from "expo-router";
 
 import { useTheme } from "@/contexts";
 import { PrimaryButton } from "@/components";
 
 export default function Index() {
   const { theme } = useTheme();
+
   return (
     <View
       style={{
@@ -21,6 +22,10 @@ export default function Index() {
       <PrimaryButton
         title="Go to dashboard"
         onPress={() => router.push("/(dashboard)")}
+      />
+      <PrimaryButton
+        title="Go to login"
+        onPress={() => router.push("/login")}
       />
     </View>
   );

@@ -1,7 +1,7 @@
 import { View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { AppText } from "@/components";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useTheme } from "@/contexts";
 
 const OrdersPage = () => {
