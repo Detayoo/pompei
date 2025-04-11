@@ -11,7 +11,7 @@ export const themes = {
   dark: {
     background: "#121212",
     text: "#FFFFFF",
-    primary: "#BB86FC",
+    primary: "#6200EE",
     secondary: "#03DAC6",
     border: "#aaaaaa",
     buttonText: "#fff",

@@ -1,14 +1,11 @@
 import { View } from "react-native";
-import { router } from "expo-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import * as WebBrowser from "expo-web-browser";
 
-import { PasswordField, PrimaryButton, TextField } from "@/components";
+import { AppText, PasswordField, PrimaryButton, TextField } from "@/components";
 import { useTheme } from "@/contexts";
 import { loginSchema } from "@/validators";
-import { openInBrowser, openInWebView } from "@/utils";
 
 type LoginInputType = z.infer<typeof loginSchema>;
 
@@ -37,6 +34,14 @@ const LoginPage = () => {
         gap: 30,
       }}
     >
+      <View style={{ alignItems: "flex-start", width: "100%" }}>
+        <AppText
+          title="Welcome back"
+          size="large"
+          style={{ fontFamily: "GeistBold", marginBottom: 3 }}
+        />
+        <AppText title="Let's get you logged in" />
+      </View>
       <TextField
         name="email"
         control={control}
@@ -51,15 +56,7 @@ const LoginPage = () => {
         error={errors?.password?.message}
         label="Password"
       />
-      <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
-      <PrimaryButton
-        title="Open WebView"
-        onPress={() => openInWebView("https://adedigba.vercel.app")}
-      />
-      <PrimaryButton
-        title="Open web browser"
-        onPress={() => openInBrowser("https://adedigba.vercel.app")}
-      />
+      <PrimaryButton title="Sign in" onPress={handleSubmit(__handleSubmit)} />
     </View>
   );
 };

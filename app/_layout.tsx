@@ -4,10 +4,10 @@ import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   useFonts,
-  Geist_400Regular,
-  Geist_500Medium,
-  Geist_600SemiBold,
-  Geist_700Bold,
+  Geist_400Regular as GeistRegular,
+  Geist_500Medium as GeistMedium,
+  Geist_600SemiBold as GeistSemiBold,
+  Geist_700Bold as GeistBold,
 } from "@expo-google-fonts/geist";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -17,10 +17,10 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   let [fontsLoaded] = useFonts({
-    Geist_400Regular,
-    Geist_500Medium,
-    Geist_600SemiBold,
-    Geist_700Bold,
+    GeistRegular,
+    GeistMedium,
+    GeistSemiBold,
+    GeistBold,
   });
 
   if (!fontsLoaded) {

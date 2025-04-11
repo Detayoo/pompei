@@ -24,7 +24,7 @@ export const PrimaryButton = ({ title, onPress }: ButtonProps) => {
         justifyContent: "center",
       }}
     >
-      <Text style={{ color: theme.buttonText, fontFamily: "Geist_400Regular" }}>
+      <Text style={{ color: theme.buttonText, fontFamily: "GeistRegular" }}>
         {title}
       </Text>
     </Pressable>

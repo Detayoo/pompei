@@ -1,4 +1,4 @@
-import { Text, TextProps } from "react-native";
+import { StyleProp, Text, TextStyle, TextProps } from "react-native";
 
 import { useTheme } from "@/contexts";
 
@@ -16,7 +16,7 @@ export const AppText = ({
   size,
 }: {
   title: string;
-  style?: TextProps;
+  style?: TextStyle;
   color?: string;
   size?: keyof typeof sizes;
 }) => {
@@ -24,15 +24,17 @@ export const AppText = ({
 
   return (
     <Text
-      style={{
-        ...style,
-        fontFamily: "Geist_400Regular",
-        color: color ?? theme.text,
-        fontSize:
-          size && sizes[size as keyof typeof sizes]
-            ? sizes[size as keyof typeof sizes]
-            : 16,
-      }}
+      style={[
+        style,
+        {
+          fontFamily: style?.fontFamily ?? "GeistRegular",
+          color: color ?? theme.text,
+          fontSize:
+            size && sizes[size as keyof typeof sizes]
+              ? sizes[size as keyof typeof sizes]
+              : 16,
+        },
+      ]}
     >
       {title}
     </Text>

@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { Pressable, TextInput, TextInputProps, View } from "react-native";
 import { useController, Control } from "react-hook-form";
 
 import { useTheme } from "@/contexts";
 import { AppText } from "./AppText";
-import { useState } from "react";
 
 type InputFieldProps<T> = TextInputProps & {
   name: string;
@@ -46,7 +46,7 @@ export const TextField = <T,>({
           borderColor: error ? "#cc0000" : theme.border,
           borderRadius: 5,
           color: theme.text,
-          fontFamily: "Geist_400Regular",
+          fontFamily: "GeistRegular",
           marginTop: 6,
         }}
       />
@@ -100,7 +100,7 @@ export const PasswordField = <T,>({
             paddingVertical: 10,
             color: theme.text,
             flex: 1,
-            fontFamily: "Geist_400Regular",
+            fontFamily: "GeistRegular",
           }}
           secureTextEntry={!show}
         />
