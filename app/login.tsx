@@ -42,12 +42,14 @@ const LoginPage = () => {
         control={control}
         placeholder="Enter your email"
         error={errors?.email?.message}
+        label="Email address"
       />
       <PasswordField
         name="password"
         control={control}
         placeholder="Enter password"
         error={errors?.password?.message}
+        label="Password"
       />
       <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
       <PrimaryButton

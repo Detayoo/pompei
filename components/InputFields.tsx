@@ -9,12 +9,14 @@ type InputFieldProps<T> = TextInputProps & {
   name: string;
   control: Control<any, any, T>;
   error: string | undefined;
+  label: string;
 };
 
 export const TextField = <T,>({
   name,
   control,
   error,
+  label,
   ...rest
 }: InputFieldProps<T>) => {
   const { theme } = useTheme();
@@ -29,6 +31,7 @@ export const TextField = <T,>({
         width: "100%",
       }}
     >
+      <AppText title={label} size="small" />
       <TextInput
         {...rest}
         value={field.value}
@@ -44,6 +47,7 @@ export const TextField = <T,>({
           borderRadius: 5,
           color: theme.text,
           fontFamily: "Geist_400Regular",
+          marginTop: 6,
         }}
       />
       {!!error && (
@@ -56,6 +60,7 @@ export const PasswordField = <T,>({
   name,
   control,
   error,
+  label,
   ...rest
 }: InputFieldProps<T>) => {
   const [show, setShow] = useState(false);
@@ -71,6 +76,7 @@ export const PasswordField = <T,>({
         width: "100%",
       }}
     >
+      <AppText title={label} size="small" />
       <View
         style={{
           borderWidth: 1,
@@ -83,6 +89,7 @@ export const PasswordField = <T,>({
           justifyContent: "space-between",
           alignItems: "center",
           paddingHorizontal: 12,
+          marginTop: 6,
         }}
       >
         <TextInput
