@@ -15,6 +15,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "@/contexts";
 import { themes } from "@/constants";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,25 +37,27 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider>
-        <SafeAreaProvider>
-          <StatusBar
-            barStyle="default"
-            backgroundColor={
-              mode === "light"
-                ? themes.light.background
-                : themes.dark.background
-            }
-          />
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen
-              name="(dashboard)"
-              options={{
-                headerShown: false,
-                gestureEnabled: false,
-              }}
+        <BottomSheetModalProvider>
+          <SafeAreaProvider>
+            <StatusBar
+              barStyle="default"
+              backgroundColor={
+                mode === "light"
+                  ? themes.light.background
+                  : themes.dark.background
+              }
             />
-          </Stack>
-        </SafeAreaProvider>
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen
+                name="(dashboard)"
+                options={{
+                  headerShown: false,
+                  gestureEnabled: false,
+                }}
+              />
+            </Stack>
+          </SafeAreaProvider>
+        </BottomSheetModalProvider>
       </ThemeProvider>
     </GestureHandlerRootView>
   );
