@@ -45,7 +45,6 @@ const LoginPage = () => {
         control={control}
         placeholder="Enter password"
         error={errors?.password?.message}
-        secureTextEntry
       />
       <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
     </View>
