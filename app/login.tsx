@@ -1,4 +1,5 @@
 import { View } from "react-native";
+import { router } from "expo-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -47,6 +48,10 @@ const LoginPage = () => {
         error={errors?.password?.message}
       />
       <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
+      <PrimaryButton
+        title="Open WebView"
+        onPress={() => router.push("/webview?url=https://adedigba.vercel.app")}
+      />
     </View>
   );
 };
