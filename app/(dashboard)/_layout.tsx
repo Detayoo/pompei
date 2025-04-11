@@ -5,6 +5,7 @@ import { Tabs } from "expo-router";
 
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
+import { themes } from "@/constants";
 
 const genericOptions = {
   headerShown: false,
@@ -50,13 +51,16 @@ const DashboardLayout = () => {
     <>
       <StatusBar
         barStyle="default"
-        backgroundColor={mode === "light" ? "#fff" : "#000"}
+        backgroundColor={
+          mode === "light" ? themes.light.background : themes.dark.background
+        }
       />
       <Tabs
         screenOptions={{
           tabBarStyle: {
             backgroundColor: theme.background,
             borderTopColor: "transparent",
+            borderTopWidth: 0,
           },
         }}
       >

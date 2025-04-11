@@ -13,6 +13,7 @@ import {
 import * as SplashScreen from "expo-splash-screen";
 
 import { ThemeProvider } from "@/contexts";
+import { themes } from "@/constants";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,7 +37,9 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <StatusBar
           barStyle="default"
-          backgroundColor={mode === "light" ? "#fff" : "#000"}
+          backgroundColor={
+            mode === "light" ? themes.light.background : themes.dark.background
+          }
         />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen
