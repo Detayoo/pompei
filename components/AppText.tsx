@@ -26,6 +26,7 @@ export const AppText = ({
     <Text
       style={{
         ...style,
+        fontFamily: "Geist_400Regular",
         color: color ?? theme.text,
         fontSize:
           size && sizes[size as keyof typeof sizes]

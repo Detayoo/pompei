@@ -43,6 +43,7 @@ export const TextField = <T,>({
           borderColor: error ? "#cc0000" : theme.border,
           borderRadius: 5,
           color: theme.text,
+          fontFamily: "Geist_400Regular",
         }}
       />
       {!!error && (
@@ -92,6 +93,7 @@ export const PasswordField = <T,>({
             paddingVertical: 10,
             color: theme.text,
             flex: 1,
+            fontFamily: "Geist_400Regular",
           }}
           secureTextEntry={!show}
         />

@@ -8,6 +8,7 @@ import * as WebBrowser from "expo-web-browser";
 import { PasswordField, PrimaryButton, TextField } from "@/components";
 import { useTheme } from "@/contexts";
 import { loginSchema } from "@/validators";
+import { openInBrowser, openInWebView } from "@/utils";
 
 type LoginInputType = z.infer<typeof loginSchema>;
 
@@ -51,13 +52,11 @@ const LoginPage = () => {
       <PrimaryButton title="Submit" onPress={handleSubmit(__handleSubmit)} />
       <PrimaryButton
         title="Open WebView"
-        onPress={() => router.push("/webview?url=https://adedigba.vercel.app")}
+        onPress={() => openInWebView("https://adedigba.vercel.app")}
       />
       <PrimaryButton
         title="Open web browser"
-        onPress={async () =>
-          await WebBrowser.openBrowserAsync("https://adedigba.vercel.app")
-        }
+        onPress={() => openInBrowser("https://adedigba.vercel.app")}
       />
     </View>
   );
