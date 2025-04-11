@@ -1,9 +1,8 @@
 import React, { ReactNode, RefObject, useCallback } from "react";
-import { ScrollView, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetScrollView,
-  BottomSheetView,
 } from "@gorhom/bottom-sheet";
 import { BottomSheetMethods } from "@gorhom/bottom-sheet/lib/typescript/types";
 
@@ -31,6 +30,8 @@ export const BottomModal = ({
     []
   );
 
+  //   if (!showModal) return null;
+
   return (
     <>
       <StatusBar
@@ -45,7 +46,7 @@ export const BottomModal = ({
         backdropComponent={renderBackdrop}
       >
         <BottomSheetScrollView
-          contentContainerStyle={{ paddingHorizontal: 16, flex: 1 }}
+          contentContainerStyle={{ paddingHorizontal: 16, flex: 1, backgroundColor:'#fff' }}
           showsVerticalScrollIndicator={true}
         >
           {children}

@@ -6,16 +6,13 @@ import BottomSheet from "@gorhom/bottom-sheet";
 import { useTheme } from "@/contexts";
 import { AppText, BottomModal, PrimaryButton } from "@/components";
 import { DEFAULT__SNAPPOINTS } from "@/constants";
+import { handleModal } from "@/utils";
 
 export default function Index() {
   const { theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleModal = (index: number) => {
-    sheetRef.current?.snapToIndex(index);
-    setIsOpen(true);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
 
   return (
     <View
@@ -39,7 +36,12 @@ export default function Index() {
       />
       <PrimaryButton
         title="Open sheet"
-        onPress={() => handleModal(DEFAULT__SNAPPOINTS?.length - 3)}
+        onPress={() =>
+          handleModal({
+            openModal: () => setIsOpen(true),
+            ref: sheetRef,
+          })
+        }
       />
 
       <BottomModal
@@ -50,6 +52,7 @@ export default function Index() {
       >
         <AppText title="Hey there" />
         <View style={{ height: 500 }}></View>
+        <AppText title="Hey there" />
       </BottomModal>
     </View>
   );
