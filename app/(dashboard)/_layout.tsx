@@ -63,8 +63,8 @@ const DashboardLayout = () => {
           tabBarIcon: ({ focused }) => (
             <TabBarIcon
               focused={focused}
-              activeIcon="home-outline"
-              icon="home"
+              activeIcon="star-outline"
+              icon="star"
               routeName="For You"
               color={focused ? theme.text : theme.border}
             />

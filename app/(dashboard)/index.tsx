@@ -1,8 +1,8 @@
 import { Image, ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const DashboardPage = () => {
   const { theme } = useTheme();
@@ -56,12 +56,12 @@ const DashboardPage = () => {
           color={theme.text}
           style={{ fontFamily: "GeistExtraLight" }}
         />
-        <AppText
+        {/* <AppText
           title="Tayo Adedigba"
           size="large"
           color={theme.text}
           style={{ fontFamily: "GeistRegular", marginTop: 12 }}
-        />
+        /> */}
         <AppText
           title="2 hours ago"
           size="medium"
