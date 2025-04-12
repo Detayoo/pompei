@@ -7,6 +7,7 @@ import { sizes } from "@/constants";
 
 const DashboardPage = () => {
   const { theme } = useTheme();
+
   return (
     <View
       style={{
