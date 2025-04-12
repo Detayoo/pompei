@@ -1,7 +1,11 @@
 import { Image, ScrollView, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { AppText, PrimaryButton } from "@/components";
+import {
+  AppText,
+  BottomSheetModalComponent,
+  PrimaryButton,
+} from "@/components";
 import { useTheme } from "@/contexts";
 import { DEFAULT__SNAPPOINTS, sizes } from "@/constants";
 import {
@@ -20,6 +24,7 @@ const DashboardPage = () => {
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
+
   const handleSheetChanges = useCallback((index: number) => {
     console.log("handleSheetChanges", index);
   }, []);
@@ -110,25 +115,9 @@ const DashboardPage = () => {
       </ScrollView>
       <PrimaryButton title="Show" onPress={handlePresentModalPress} />
 
-      <BottomSheetModal
-        onDismiss={() => {}}
-        // snapPoints={DEFAULT__SNAPPOINTS}
-        snapPoints={["25%", "70%", "90%"]}
-        ref={bottomSheetModalRef}
-        onChange={handleSheetChanges}
-        backdropComponent={renderBackdrop}
-      >
-        <BottomSheetView
-          style={{
-            flexGrow: 1,
-            paddingHorizontal: 16,
-          }}
-        >
-          <ScrollView contentContainerStyle={{ flex: 1 }}>
-            <Text>Awesome 🎉</Text>
-          </ScrollView>
-        </BottomSheetView>
-      </BottomSheetModal>
+      <BottomSheetModalComponent sheetRef={bottomSheetModalRef}>
+        <AppText title="TESTING"></AppText>
+      </BottomSheetModalComponent>
     </View>
   );
 };

@@ -3,4 +3,4 @@ export * from "./AppText";
 export * from "./InputFields";
 export * from "./Screen";
 export * from "./BottomModal";
-export * from "./BottomSheetComponent";
+export * from "./BottomSheetModalComponent";

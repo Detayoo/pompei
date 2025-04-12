@@ -30,8 +30,6 @@ export const BottomModal = ({
     []
   );
 
-  //   if (!showModal) return null;
-
   return (
     <>
       <StatusBar
