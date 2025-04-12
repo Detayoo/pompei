@@ -5,6 +5,7 @@ import BottomSheet, {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { BottomSheetMethods } from "@gorhom/bottom-sheet/lib/typescript/types";
+import { ModalBackground } from "./ModalBackground";
 
 export const BottomModal = ({
   sheetRef,
@@ -23,37 +24,38 @@ export const BottomModal = ({
     (props: any) => (
       <BottomSheetBackdrop
         {...props}
-        disappearsOnIndex={0}
+        disappearsOnIndex={-1}
         appearsOnIndex={1}
       />
     ),
     []
   );
-
-  return (
-    <>
-      <StatusBar
-        barStyle="default"
-        backgroundColor={showModal ? "rgba(0, 0, 0, 0.5)" : ""}
-      />
-      <BottomSheet
-        ref={sheetRef}
-        snapPoints={snapPoints}
-        enablePanDownToClose
-        onClose={closeModal}
-        backdropComponent={renderBackdrop}
-      >
-        <BottomSheetScrollView
-          contentContainerStyle={{
-            paddingHorizontal: 16,
-            flex: 1,
-            backgroundColor: "#fff",
-          }}
-          showsVerticalScrollIndicator={true}
+  if (showModal)
+    return (
+      <>
+        <StatusBar
+          barStyle="default"
+          backgroundColor={showModal ? "rgba(0, 0, 0, 0.5)" : ""}
+        />
+        <BottomSheet
+          ref={sheetRef}
+          snapPoints={snapPoints}
+          enablePanDownToClose
+          onClose={closeModal}
+          backdropComponent={renderBackdrop}
+          // backgroundComponent={ModalBackground}
         >
-          {children}
-        </BottomSheetScrollView>
-      </BottomSheet>
-    </>
-  );
+          <BottomSheetScrollView
+            contentContainerStyle={{
+              paddingHorizontal: 16,
+              flex: 1,
+              backgroundColor: "#fff",
+            }}
+            showsVerticalScrollIndicator={true}
+          >
+            {children}
+          </BottomSheetScrollView>
+        </BottomSheet>
+      </>
+    );
 };

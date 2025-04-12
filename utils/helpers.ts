@@ -19,7 +19,7 @@ export const openInWebView = (url: string) => {
 
 export const handleModal = ({
   ref,
-  index = DEFAULT__SNAPPOINTS?.length - 3,
+  index = DEFAULT__SNAPPOINTS?.length - 1,
   openModal,
 }: {
   ref: RefObject<BottomSheetMethods>;

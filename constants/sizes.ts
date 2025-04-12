@@ -5,12 +5,4 @@ export const sizes = {
   height: Dimensions.get("window").height,
 };
 
-export const DEFAULT__SNAPPOINTS = [
-  "1%",
-  "40%",
-  "50%",
-  "60%",
-  "70%",
-  "80%",
-  "90%",
-];
+export const DEFAULT__SNAPPOINTS = ["50%", "60%", "70%", "80%", "90%"];

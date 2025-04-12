@@ -5,6 +5,7 @@ import {
   BottomSheetModal,
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
+import { ModalBackground } from "./ModalBackground";
 
 export const BottomSheetModalComponent = ({
   sheetRef,
@@ -26,9 +27,10 @@ export const BottomSheetModalComponent = ({
   return (
     <BottomSheetModal
       onDismiss={() => {}}
-      snapPoints={["25%", "70%", "90%"]}
+      snapPoints={["50%", "70%", "90%"]}
       ref={sheetRef}
       backdropComponent={renderBackdrop}
+      //   backgroundComponent={ModalBackground}
     >
       <BottomSheetView
         style={{

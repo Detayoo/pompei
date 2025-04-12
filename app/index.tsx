@@ -12,7 +12,6 @@ export default function Index() {
   const { theme } = useTheme();
   const sheetRef = useRef<BottomSheet>(null);
   const [isOpen, setIsOpen] = useState(false);
-  // console.log(isOpen);
 
   return (
     <View
@@ -50,7 +49,7 @@ export default function Index() {
         sheetRef={sheetRef}
         snapPoints={DEFAULT__SNAPPOINTS}
       >
-        <AppText title="Hey there" />
+        <AppText color={theme.black} title="Hey there now" />
         <View style={{ height: 500 }}></View>
       </BottomModal>
     </View>
