@@ -23,17 +23,14 @@ export default function Index() {
       }}
     >
       <Text style={{ color: theme.text }}>
-        Welcome page that the user sees by opening my app
+        Welcome to pompei
       </Text>
-      <PrimaryButton
+      {/* <PrimaryButton
         title="Go to dashboard"
         onPress={() => router.push("/(dashboard)")}
-      />
-      <PrimaryButton
-        title="Go to login"
-        onPress={() => router.push("/login")}
-      />
-      <PrimaryButton
+      /> */}
+      <PrimaryButton title="Sign in" onPress={() => router.push("/login")} />
+      {/* <PrimaryButton
         title="Open sheet"
         onPress={() =>
           handleModal({
@@ -41,7 +38,7 @@ export default function Index() {
             ref: sheetRef,
           })
         }
-      />
+      /> */}
 
       <BottomModal
         closeModal={() => setIsOpen(false)}

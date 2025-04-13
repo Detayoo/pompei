@@ -6,6 +6,7 @@ import { z } from "zod";
 import { AppText, PasswordField, PrimaryButton, TextField } from "@/components";
 import { useTheme } from "@/contexts";
 import { loginSchema } from "@/validators";
+import { router } from "expo-router";
 
 type LoginInputType = z.infer<typeof loginSchema>;
 
@@ -20,7 +21,7 @@ const LoginPage = () => {
   });
 
   const __handleSubmit = (data: LoginInputType) => {
-    console.log(data);
+    router.replace("/(dashboard)");
   };
 
   return (
