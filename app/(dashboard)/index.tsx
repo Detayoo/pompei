@@ -1,9 +1,10 @@
-import { Image, ScrollView, View } from "react-native";
+import { Image, ScrollView, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
 import { sizes } from "@/constants";
+import { router } from "expo-router";
 
 const DashboardPage = () => {
   const { theme } = useTheme();
@@ -23,57 +24,69 @@ const DashboardPage = () => {
           flex: 1,
         }}
       >
-        <AppText
-          title="technology"
-          size="xxxlarge"
-          style={{ fontFamily: "GeistMedium", textAlign: "center" }}
-        />
-        <AppText
-          title="april 14th, 2025"
-          size="small"
-          color={theme.border}
-          style={{
-            fontFamily: "GeistExtraLight",
-            textAlign: "center",
-            marginBottom: 5,
-          }}
-        />
-        <View
-          style={{
-            width: "100%",
-            justifyContent: "flex-start",
-            marginTop: -10,
-          }}
+        <TouchableOpacity
+          onPress={() =>
+            router.push({
+              pathname: "/details",
+              params: {
+                title:
+                  "🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers",
+              },
+            })
+          }
         >
-          <Image
-            source={require("../../assets/images/square.webp")}
+          <AppText
+            title="technology"
+            size="xxxlarge"
+            style={{ fontFamily: "GeistMedium", textAlign: "center" }}
+          />
+          <AppText
+            title="april 14th, 2025"
+            size="small"
+            color={theme.border}
+            style={{
+              fontFamily: "GeistExtraLight",
+              textAlign: "center",
+              marginBottom: 5,
+            }}
+          />
+          <View
             style={{
               width: "100%",
-              height: sizes.height / 2.2,
+              justifyContent: "flex-start",
+              marginTop: -10,
             }}
-            resizeMode="contain"
+          >
+            <Image
+              source={require("../../assets/images/tech.png")}
+              style={{
+                width: "100%",
+                height: sizes.height / 2.2,
+              }}
+              resizeMode="contain"
+            />
+          </View>
+
+          <AppText
+            title="🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers"
+            size="xxlarge"
+            color={theme.text}
+            style={{ fontFamily: "GeistExtraLight" }}
           />
-        </View>
 
-        <AppText
-          title="🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers"
-          size="xxlarge"
-          color={theme.text}
-          style={{ fontFamily: "GeistExtraLight" }}
-        />
-
-        <AppText
-          title="30 minutes ago"
-          size="small"
-          color={theme.faintText}
-          style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
-        />
-        <AppText
-          title="Nvidia has announced plans to invest up to $500 billion in building artificial intelligence (AI) supercomputers entirely within the United States, responding to pressure from the Trump administration's push for domestic manufacturing[..]"
-          size="small"
-          color={theme.text}
-          style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
-        />
+          <AppText
+            title="30 minutes ago"
+            size="small"
+            color={theme.faintText}
+            style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
+          />
+          <AppText
+            title="Nvidia has announced plans to invest up to $500 billion in building artificial intelligence (AI) supercomputers entirely within the United States, responding to pressure from the Trump administration's push for domestic manufacturing[..]"
+            size="small"
+            color={theme.text}
+            style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
+          />
+        </TouchableOpacity>
         <View
           style={{
             height: 0.5,
