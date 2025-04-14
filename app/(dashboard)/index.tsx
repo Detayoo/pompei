@@ -17,27 +17,27 @@ const DashboardPage = () => {
         paddingHorizontal: 16,
       }}
     >
-      <AppText
-        title="entertainment"
-        size="xxxlarge"
-        style={{ fontFamily: "GeistMedium", textAlign: "center" }}
-      />
-      <AppText
-        title="april 11th, 2025"
-        size="small"
-        color={theme.border}
-        style={{
-          fontFamily: "GeistExtraLight",
-          textAlign: "center",
-          marginBottom: 5,
-        }}
-      />
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={{
           flex: 1,
         }}
       >
+        <AppText
+          title="technology"
+          size="xxxlarge"
+          style={{ fontFamily: "GeistMedium", textAlign: "center" }}
+        />
+        <AppText
+          title="april 14th, 2025"
+          size="small"
+          color={theme.border}
+          style={{
+            fontFamily: "GeistExtraLight",
+            textAlign: "center",
+            marginBottom: 5,
+          }}
+        />
         <View
           style={{
             width: "100%",
@@ -55,19 +55,72 @@ const DashboardPage = () => {
           />
         </View>
 
-        {/* <AppText title="New" size="medium" color={theme.text} /> */}
+        <AppText
+          title="🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers"
+          size="xxlarge"
+          color={theme.text}
+          style={{ fontFamily: "GeistExtraLight" }}
+        />
+
+        <AppText
+          title="30 minutes ago"
+          size="small"
+          color={theme.faintText}
+          style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
+        />
+        <AppText
+          title="Nvidia has announced plans to invest up to $500 billion in building artificial intelligence (AI) supercomputers entirely within the United States, responding to pressure from the Trump administration's push for domestic manufacturing[..]"
+          size="small"
+          color={theme.text}
+          style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
+        />
+        <View
+          style={{
+            height: 0.5,
+            backgroundColor: theme.border,
+            marginVertical: 20,
+          }}
+        />
+
+        <AppText
+          title="entertainment"
+          size="xxxlarge"
+          style={{ fontFamily: "GeistMedium", textAlign: "center" }}
+        />
+        <AppText
+          title="april 11th, 2025"
+          size="small"
+          color={theme.border}
+          style={{
+            fontFamily: "GeistExtraLight",
+            textAlign: "center",
+            marginBottom: 5,
+          }}
+        />
+        <View
+          style={{
+            width: "100%",
+            justifyContent: "flex-start",
+            marginTop: -10,
+          }}
+        >
+          <Image
+            source={require("../../assets/images/square.webp")}
+            style={{
+              width: "100%",
+              height: sizes.height / 2.2,
+            }}
+            resizeMode="contain"
+          />
+        </View>
+
         <AppText
           title="Kate Winslef's Unstoppable force in 'Brilliant Mind'"
           size="xxlarge"
           color={theme.text}
           style={{ fontFamily: "GeistExtraLight" }}
         />
-        {/* <AppText
-          title="Tayo Adedigba"
-          size="large"
-          color={theme.text}
-          style={{ fontFamily: "GeistRegular", marginTop: 12 }}
-        /> */}
+
         <AppText
           title="2 hours ago"
           size="small"
@@ -75,7 +128,7 @@ const DashboardPage = () => {
           style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
         />
         <AppText
-          title="In her latest role, Kate Winslet delivers a powerhouse performance as Dr. Evelyn Moore, a neuroscientist unraveling the mysteries of human memory. With commanding presence and emotional depth, Winslet captivates in every frame. The film explores genius, vulnerability, and the blurred line between brilliance and madness. Critics are already calling it her most daring role since The Reader. Winslet brings gravitas to a character wrestling with both trauma and triumph. Director Lena Harmon crafts a cerebral yet intimate narrative, and Winslet owns every moment. Brilliant Mind is more than a film—it's a reminder of Winslet's enduring brilliance."
+          title="In her latest role, Kate Winslet delivers a powerhouse performance as Dr. Evelyn Moore, a neuroscientist unraveling the mysteries of human memory. With commanding presence and emotional depth, Winslet captivates in every frame.."
           size="small"
           color={theme.text}
           style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}

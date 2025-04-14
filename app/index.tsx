@@ -22,13 +22,11 @@ export default function Index() {
         backgroundColor: theme.background,
       }}
     >
-      <Text style={{ color: theme.text }}>
-        Welcome to pompei
-      </Text>
-      {/* <PrimaryButton
+      <Text style={{ color: theme.text }}>Welcome to pompei</Text>
+      <PrimaryButton
         title="Go to dashboard"
         onPress={() => router.push("/(dashboard)")}
-      /> */}
+      />
       <PrimaryButton title="Sign in" onPress={() => router.push("/login")} />
       {/* <PrimaryButton
         title="Open sheet"

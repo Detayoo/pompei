@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/pompei-icon.png",
+        "foregroundImage": "./assets/images/pompei-icon.jpg",
         "backgroundColor": "#ffffff"
       }
     },
