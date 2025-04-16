@@ -1,9 +1,13 @@
-import { Text, TextStyle } from "react-native";
+import { Text, TextProps, TextStyle } from "react-native";
 
 import { useTheme } from "@/contexts";
 import { fonts } from "@/constants";
 
-type Fonts = keyof fonts;
+type AppTextType = TextProps & {
+  style?: TextStyle;
+  color?: string;
+  size?: keyof typeof sizes;
+};
 
 const sizes = {
   xsmall: 12,
@@ -15,17 +19,7 @@ const sizes = {
   xxxlarge: 32,
 };
 
-export const AppText = ({
-  title,
-  style,
-  color,
-  size,
-}: {
-  title: string;
-  style?: TextStyle;
-  color?: string;
-  size?: keyof typeof sizes;
-}) => {
+export const AppText = ({ style, color, size, ...rest }: AppTextType) => {
   const { theme } = useTheme();
 
   return (
@@ -41,8 +35,7 @@ export const AppText = ({
               : 16,
         },
       ]}
-    >
-      {title}
-    </Text>
+      {...rest}
+    />
   );
 };

@@ -44,7 +44,7 @@ export default function Index() {
         sheetRef={sheetRef}
         snapPoints={DEFAULT__SNAPPOINTS}
       >
-        <AppText color={theme.black} title="Hey there now" />
+        <AppText color={theme.black}>Hey you</AppText>
         <View style={{ height: 500 }}></View>
       </BottomModal>
     </View>

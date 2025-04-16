@@ -99,7 +99,7 @@ const DetailsPage = () => {
           style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
         />
         <AppText
-          title="Ultimately, this investment is more than just a financial milestone—it signals a new era in American tech manufacturing. Nvidia’s AI supercomputers are expected to power everything from large language models and autonomous systems to scientific research and defense technology. As global competition in AI intensifies, Nvidia is making a clear statement: the future of AI leadership will be built at home."
+        Ultimately, this investment is more than just a financial milestone—it signals a new era in American tech manufacturing. Nvidia’s AI supercomputers are expected to power everything from large language models and autonomous systems to scientific research and defense technology. As global competition in AI intensifies, Nvidia is making a clear statement: the future of AI leadership will be built at home.
           size="small"
           color={theme.text}
           style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
