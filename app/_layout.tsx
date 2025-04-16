@@ -57,14 +57,6 @@ export default function RootLayout() {
                   gestureEnabled: false,
                 }}
               />
-
-              <Stack.Screen
-                name="details"
-                options={{
-                  headerShown: false,
-                  gestureEnabled: false,
-                }}
-              />
             </Stack>
           </SafeAreaProvider>
         </BottomSheetModalProvider>

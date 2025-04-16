@@ -1,10 +1,10 @@
 import { Image, ScrollView, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 import { AppText } from "@/components";
 import { useTheme } from "@/contexts";
 import { sizes } from "@/constants";
-import { router } from "expo-router";
 
 const DashboardPage = () => {
   const { theme } = useTheme();

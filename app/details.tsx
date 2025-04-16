@@ -7,9 +7,9 @@ import {
   StatusBar,
   View,
 } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 
-import { AppText } from "@/components";
+import { AppText, PrimaryButton } from "@/components";
 import { useTheme } from "@/contexts";
 import { sizes } from "@/constants";
 
@@ -66,6 +66,7 @@ const DetailsPage = () => {
             marginVertical: 10,
           }}
         />
+        <PrimaryButton title="Go to New" onPress={() => router.push("/new")} />
 
         <AppText
           title="Nvidia, the world's most valuable chipmaker, has announced a monumental investment plan to build artificial intelligence (AI) supercomputers entirely within the United States. With an estimated outlay of $500 billion, the initiative marks a significant shift in the company's strategy, reflecting growing political and economic pressure for major tech firms to localize their operations and reduce dependence on foreign supply chains."
