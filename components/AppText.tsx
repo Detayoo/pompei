@@ -1,7 +1,6 @@
 import { Text, TextProps, TextStyle } from "react-native";
 
 import { useTheme } from "@/contexts";
-import { fonts } from "@/constants";
 
 type AppTextType = TextProps & {
   style?: TextStyle;

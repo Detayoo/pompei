@@ -37,7 +37,9 @@ const TabBarIcon = ({
       }}
     >
       <Ionicons name={focused ? icon : activeIcon} size={20} color={color} />
-      <AppText size="small" color={color} title={routeName}></AppText>
+      <AppText size="small" color={color}>
+        {routeName}
+      </AppText>
     </View>
   );
 };

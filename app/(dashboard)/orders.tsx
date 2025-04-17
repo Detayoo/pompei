@@ -3,7 +3,7 @@ import { AppText, Screen } from "@/components";
 const OrdersPage = () => {
   return (
     <Screen>
-      <AppText title="Shop Page"></AppText>
+      <AppText>Shop Page</AppText>
     </Screen>
   );
 };

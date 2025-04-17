@@ -36,12 +36,12 @@ const DashboardPage = () => {
           }
         >
           <AppText
-            title="technology"
             size="xxxlarge"
             style={{ fontFamily: "GeistMedium", textAlign: "center" }}
-          />
+          >
+            technology
+          </AppText>
           <AppText
-            title="april 14th, 2025"
             size="small"
             color={theme.border}
             style={{
@@ -49,7 +49,9 @@ const DashboardPage = () => {
               textAlign: "center",
               marginBottom: 5,
             }}
-          />
+          >
+            april 14th, 2025
+          </AppText>
           <View
             style={{
               width: "100%",
@@ -68,24 +70,30 @@ const DashboardPage = () => {
           </View>
 
           <AppText
-            title="🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers"
             size="xxlarge"
             color={theme.text}
             style={{ fontFamily: "GeistExtraLight" }}
-          />
+          >
+            🇺🇸 Nvidia to Invest $500 Billion in U.S.-Based AI Supercomputers
+          </AppText>
 
           <AppText
-            title="30 minutes ago"
             size="small"
             color={theme.faintText}
             style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
-          />
+          >
+            30 minutes ago
+          </AppText>
           <AppText
-            title="Nvidia has announced plans to invest up to $500 billion in building artificial intelligence (AI) supercomputers entirely within the United States, responding to pressure from the Trump administration's push for domestic manufacturing[..]"
             size="small"
             color={theme.text}
             style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
-          />
+          >
+            Nvidia has announced plans to invest up to $500 billion in building
+            artificial intelligence (AI) supercomputers entirely within the
+            United States, responding to pressure from the Trump
+            administration's push for domestic manufacturing[..]
+          </AppText>
         </TouchableOpacity>
         <View
           style={{
@@ -96,12 +104,12 @@ const DashboardPage = () => {
         />
 
         <AppText
-          title="entertainment"
           size="xxxlarge"
           style={{ fontFamily: "GeistMedium", textAlign: "center" }}
-        />
+        >
+          entertainment
+        </AppText>
         <AppText
-          title="april 11th, 2025"
           size="small"
           color={theme.border}
           style={{
@@ -109,7 +117,9 @@ const DashboardPage = () => {
             textAlign: "center",
             marginBottom: 5,
           }}
-        />
+        >
+          april 11th, 2025
+        </AppText>
         <View
           style={{
             width: "100%",
@@ -128,24 +138,30 @@ const DashboardPage = () => {
         </View>
 
         <AppText
-          title="Kate Winslef's Unstoppable force in 'Brilliant Mind'"
           size="xxlarge"
           color={theme.text}
           style={{ fontFamily: "GeistExtraLight" }}
-        />
+        >
+          Kate Winslef's Unstoppable force in 'Brilliant Mind'
+        </AppText>
 
         <AppText
-          title="2 hours ago"
           size="small"
           color={theme.faintText}
           style={{ fontFamily: "GeistExtraLight", marginTop: 12 }}
-        />
+        >
+          2 hours ago
+        </AppText>
         <AppText
-          title="In her latest role, Kate Winslet delivers a powerhouse performance as Dr. Evelyn Moore, a neuroscientist unraveling the mysteries of human memory. With commanding presence and emotional depth, Winslet captivates in every frame.."
           size="small"
           color={theme.text}
           style={{ marginTop: 12, fontFamily: "GeistExtraLight" }}
-        />
+        >
+          In her latest role, Kate Winslet delivers a powerhouse performance as
+          Dr. Evelyn Moore, a neuroscientist unraveling the mysteries of human
+          memory. With commanding presence and emotional depth, Winslet
+          captivates in every frame..
+        </AppText>
       </ScrollView>
     </View>
   );

@@ -37,11 +37,12 @@ const LoginPage = () => {
     >
       <View style={{ alignItems: "flex-start", width: "100%" }}>
         <AppText
-          title="Welcome back"
           size="large"
           style={{ fontFamily: "GeistBold", marginBottom: 3 }}
-        />
-        <AppText title="Let's get you logged in" />
+        >
+          Welcome back
+        </AppText>
+        <AppText>Let's get you logged in</AppText>
       </View>
       <TextField
         name="email"

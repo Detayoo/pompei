@@ -8,7 +8,7 @@ const CulturePage = () => {
   return (
     <Screen>
       <View style={{ flex: 1, backgroundColor: theme.background }}>
-        <AppText title="Culture Page"></AppText>
+        <AppText>Culture page</AppText>
       </View>
     </Screen>
   );
