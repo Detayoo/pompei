@@ -15,6 +15,10 @@ export const Screen = ({ children }: { children: ReactNode }) => {
         backgroundColor: theme.background,
         paddingHorizontal: 16,
       }}
+      contentContainerStyle={{
+        flex: 1,
+        width: "100%",
+      }}
     >
       {children}
     </ScrollView>
