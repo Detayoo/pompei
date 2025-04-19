@@ -9,9 +9,11 @@ import {
 export const BottomSheetModalComponent = ({
   sheetRef,
   children,
+  snapPoints,
 }: {
   sheetRef: RefObject<BottomSheetModal>;
   children: ReactNode;
+  snapPoints?: string[];
 }) => {
   const renderBackdrop = useCallback(
     (props: any) => (
@@ -26,15 +28,15 @@ export const BottomSheetModalComponent = ({
   return (
     <BottomSheetModal
       onDismiss={() => {}}
-      snapPoints={["50%", "70%", "90%"]}
+      snapPoints={snapPoints ?? ["50%", "70%", "90%"]}
       ref={sheetRef}
       backdropComponent={renderBackdrop}
-      //   backgroundComponent={ModalBackground}
     >
       <BottomSheetView
         style={{
           flex: 1,
           paddingHorizontal: 16,
+          paddingVertical: 30,
         }}
       >
         <ScrollView

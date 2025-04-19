@@ -17,10 +17,18 @@ export const LogoutModal = ({
   setShowModal: (state: boolean) => void;
 }) => {
   return (
-    <BottomSheetModalComponent sheetRef={sheetRef}>
-      <View style={{ gap: 20 }}>
-        <AppText>Are you sure you want to log out?</AppText>
-        <View style={{ gap: 30, marginTop: 40, flexDirection: "row" }}>
+    <BottomSheetModalComponent snapPoints={["30%"]} sheetRef={sheetRef}>
+      <View
+        style={{
+          gap: 20,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <AppText size="medium" style={{}}>
+          Are you sure you want to log out?
+        </AppText>
+        <View style={{ gap: 30, marginTop: 30, flexDirection: "row" }}>
           <PrimaryButton
             width="45%"
             onPress={() => router.push("/login")}
@@ -30,7 +38,7 @@ export const LogoutModal = ({
             width="45%"
             type="outline"
             onPress={() => {}}
-            title="Proceed"
+            title="Cancel"
           />
         </View>
       </View>
