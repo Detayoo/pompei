@@ -1,4 +1,4 @@
-import { RefObject, useRef, useState } from "react";
+import { RefObject } from "react";
 import { View } from "react-native";
 import { router } from "expo-router";
 
@@ -8,7 +8,6 @@ import {
   PrimaryButton,
 } from "@/components";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { Ionicons } from "@expo/vector-icons";
 
 export const LogoutModal = ({
   sheetRef,
@@ -27,7 +26,6 @@ export const LogoutModal = ({
           width: "100%",
         }}
       >
-        {/* <Ionicons name="log-out-outline" size={50} color="#c00" /> */}
         <AppText size="medium" style={{}}>
           Are you sure you want to log out of the app?
         </AppText>
