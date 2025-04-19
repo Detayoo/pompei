@@ -114,6 +114,23 @@ const DashboardLayout = () => {
             ),
           }}
         />
+        <Tabs.Screen
+          name="settings"
+          options={{
+            ...genericOptions,
+            tabBarLabelStyle: { fontSize: 12, display: "none" },
+            title: "Settings",
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon
+                focused={focused}
+                activeIcon="settings-outline"
+                icon="settings"
+                routeName="Settings"
+                color={focused ? theme.text : theme.border}
+              />
+            ),
+          }}
+        />
       </Tabs>
     </>
   );
