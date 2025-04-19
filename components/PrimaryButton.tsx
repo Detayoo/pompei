@@ -3,14 +3,16 @@ import {
   ButtonProps as DefaultButtonProps,
   Text,
   Pressable,
+  DimensionValue,
 } from "react-native";
 
 type ButtonProps = DefaultButtonProps & {
   title: string;
   onPress: () => void;
+  width?: DimensionValue;
 };
 
-export const PrimaryButton = ({ title, onPress }: ButtonProps) => {
+export const PrimaryButton = ({ title, onPress, width }: ButtonProps) => {
   const { theme } = useTheme();
   return (
     <Pressable
@@ -19,7 +21,7 @@ export const PrimaryButton = ({ title, onPress }: ButtonProps) => {
         backgroundColor: theme.buttonBg,
         paddingVertical: 16,
         borderRadius: 5,
-        width: "100%",
+        width: width ?? "100%",
         alignItems: "center",
         justifyContent: "center",
       }}
@@ -30,3 +32,5 @@ export const PrimaryButton = ({ title, onPress }: ButtonProps) => {
     </Pressable>
   );
 };
+
+export const

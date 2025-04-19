@@ -1,30 +1,33 @@
-import { useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import { View } from "react-native";
 import { router } from "expo-router";
 
-import { AppText, BottomModal, PrimaryButton } from "@/components";
-import { DEFAULT__SNAPPOINTS } from "@/constants";
+import {
+  AppText,
+  BottomSheetModalComponent,
+  PrimaryButton,
+} from "@/components";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
-export const LogoutModal = () => {
-  const [showModal, setShowModal] = useState(false);
-  const sheetRef = useRef(null);
+export const LogoutModal = ({
+  sheetRef,
+  setShowModal,
+}: {
+  sheetRef: RefObject<BottomSheetModal>;
+  setShowModal: (state: boolean) => void;
+}) => {
   return (
-    <BottomModal
-      closeModal={() => setShowModal(false)}
-      showModal={showModal}
-      sheetRef={sheetRef}
-      snapPoints={DEFAULT__SNAPPOINTS}
-    >
+    <BottomSheetModalComponent sheetRef={sheetRef}>
       <View style={{ gap: 20 }}>
         <AppText>Are you sure you want to log out?</AppText>
-        <View style={{ gap: 30, marginTop: 40 }}>
+        <View style={{ gap: 30, marginTop: 40, flexDirection: "row" }}>
           <PrimaryButton
+            width="45%"
             onPress={() => router.push("/login")}
             title="Proceed"
           />
-          <AppText onPress={() => setShowModal(false)}>Cancel</AppText>
-        </View>
+<Pressabb        </View>
       </View>
-    </BottomModal>
+    </BottomSheetModalComponent>
   );
 };

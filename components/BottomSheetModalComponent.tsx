@@ -5,7 +5,6 @@ import {
   BottomSheetModal,
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
-import { ModalBackground } from "./ModalBackground";
 
 export const BottomSheetModalComponent = ({
   sheetRef,
