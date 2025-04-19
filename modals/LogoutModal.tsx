@@ -26,7 +26,13 @@ export const LogoutModal = ({
             onPress={() => router.push("/login")}
             title="Proceed"
           />
-<Pressabb        </View>
+          <PrimaryButton
+            width="45%"
+            type="outline"
+            onPress={() => {}}
+            title="Proceed"
+          />
+        </View>
       </View>
     </BottomSheetModalComponent>
   );
