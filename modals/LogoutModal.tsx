@@ -1,13 +1,13 @@
 import { RefObject } from "react";
 import { View } from "react-native";
 import { router } from "expo-router";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 import {
   AppText,
   BottomSheetModalComponent,
   PrimaryButton,
 } from "@/components";
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 export const LogoutModal = ({
   sheetRef,
@@ -45,7 +45,7 @@ export const LogoutModal = ({
           <PrimaryButton
             width="45%"
             type="outline"
-            onPress={() => {}}
+            onPress={closeModal}
             title="No, cancel"
           />
         </View>

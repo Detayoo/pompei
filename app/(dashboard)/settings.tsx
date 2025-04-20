@@ -1,16 +1,12 @@
 import { useRef, useState } from "react";
-
-import { AppText, PrimaryButton, Screen } from "@/components";
-import { LogoutModal } from "@/modals";
 import { Pressable, View } from "react-native";
-import { useTheme } from "@/contexts";
-import {
-  Ionicons,
-  MaterialCommunityIcons,
-  FontAwesome5,
-} from "@expo/vector-icons";
-import { themes } from "@/constants";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+
+import { AppText, Screen } from "@/components";
+import { LogoutModal } from "@/modals";
+import { useTheme } from "@/contexts";
+import { Ionicons } from "@expo/vector-icons";
+import { themes } from "@/constants";
 
 const routes = [
   {
