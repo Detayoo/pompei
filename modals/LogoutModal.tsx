@@ -11,10 +11,10 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 export const LogoutModal = ({
   sheetRef,
-  setShowModal,
+  closeModal,
 }: {
   sheetRef: RefObject<BottomSheetModal>;
-  setShowModal: (state: boolean) => void;
+  closeModal: () => void;
 }) => {
   return (
     <BottomSheetModalComponent snapPoints={["30%"]} sheetRef={sheetRef}>

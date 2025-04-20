@@ -10,6 +10,7 @@ import {
   FontAwesome5,
 } from "@expo/vector-icons";
 import { themes } from "@/constants";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const routes = [
   {
@@ -33,7 +34,6 @@ const routes = [
     route: "/notifications",
   },
 ];
-// person-circle-outline lock-closed-outline
 
 const SettingsItem = ({
   theme,
@@ -70,7 +70,7 @@ const SettingsItem = ({
 };
 
 const Settings = () => {
-  const sheetRef = useRef<any>(null);
+  const sheetRef = useRef<BottomSheetModal>(null);
   const [showModal, setShowModal] = useState(false);
   const { theme } = useTheme();
 
@@ -91,7 +91,7 @@ const Settings = () => {
       </View>
 
       <Pressable
-        onPress={() => sheetRef.current.present()}
+        onPress={() => sheetRef.current?.present()}
         style={{
           position: "absolute",
           bottom: 20,
@@ -105,7 +105,10 @@ const Settings = () => {
           Logout
         </AppText>
       </Pressable>
-      <LogoutModal sheetRef={sheetRef} setShowModal={setShowModal} />
+      <LogoutModal
+        sheetRef={sheetRef}
+        closeModal={() => sheetRef.current?.close()}
+      />
     </Screen>
   );
 };
