@@ -13,14 +13,6 @@ const CulturePage = () => {
   const [position, setPosition] = useState<number>(0);
   const interval = useRef<NodeJS.Timer | null>(null);
 
-  const playSound = async () => {
-    const { sound } = await Audio.Sound.createAsync(
-      require("../../assets/audio/audio-sound.mp3")
-    );
-    setSound(sound);
-    await sound.playAsync();
-  };
-
   const loadAndPlay = async () => {
     const { sound } = await Audio.Sound.createAsync(
       require("../../assets/audio/anthropic-prompt-engineering.mp3"),
