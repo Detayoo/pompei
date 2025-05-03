@@ -56,6 +56,19 @@ const CulturePage = () => {
         style={{ flex: 1, backgroundColor: theme.background, width: "100%" }}
       >
         {/* <AppText>Culture page</AppText> */}
+        <View
+          style={{
+            gap: 20,
+          }}
+        >
+          <Image
+            source={require("../../assets/images/music-maker.jpg")}
+            style={{ height: 80, width: 80 }}
+          />
+          <AppText>Music</AppText>
+          <AppText>The Playlist Monarch: The Man, the Myth, the Movement</AppText>
+          <AppText>by 0x.</AppText>
+        </View>
         <View style={{ width: "100%", position: "absolute", bottom: 20 }}>
           <AppText style={{ fontFamily: "GeistMedium", marginBottom: 10 }}>
             Now Playing
