@@ -1,10 +1,47 @@
 import { useEffect, useRef, useState } from "react";
-import { Image, View } from "react-native";
+import { Image, ImageSourcePropType, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from "expo-av";
 
 import { AppText, Screen } from "@/components";
 import { useTheme } from "@/contexts";
+import { sizes } from "@/constants";
+
+const Item = ({
+  image,
+  category,
+  headline,
+  author,
+}: {
+  image: ImageSourcePropType;
+  category: string;
+  headline: string;
+  author: string;
+}) => {
+  return (
+    <View
+      style={{
+        gap: 2,
+      }}
+    >
+      <Image source={image} style={{ height: 400, width: sizes.width - 32 }} />
+      <AppText
+        style={{
+          marginTop: 15,
+          textTransform: "uppercase",
+          fontFamily: "GeistSemiBold",
+        }}
+        size="medium"
+      >
+        {category}
+      </AppText>
+      <AppText size="large" style={{}}>
+        {headline}
+      </AppText>
+      <AppText>by {author}</AppText>
+    </View>
+  );
+};
 
 const CulturePage = () => {
   const { theme } = useTheme();
@@ -56,19 +93,12 @@ const CulturePage = () => {
         style={{ flex: 1, backgroundColor: theme.background, width: "100%" }}
       >
         {/* <AppText>Culture page</AppText> */}
-        <View
-          style={{
-            gap: 20,
-          }}
-        >
-          <Image
-            source={require("../../assets/images/music-maker.jpg")}
-            style={{ height: 80, width: 80 }}
-          />
-          <AppText>Music</AppText>
-          <AppText>The Playlist Monarch: The Man, the Myth, the Movement</AppText>
-          <AppText>by 0x.</AppText>
-        </View>
+        <Item
+          image={require("../../assets/images/music-maker.jpg")}
+          category="Music"
+          headline="The Playlist Monarch: The Man, the Myth, the Movement."
+          author="0x"
+        />
         <View style={{ width: "100%", position: "absolute", bottom: 20 }}>
           <AppText style={{ fontFamily: "GeistMedium", marginBottom: 10 }}>
             Now Playing
@@ -111,6 +141,7 @@ const CulturePage = () => {
                   size={26}
                   style={{ marginLeft: "auto" }}
                   onPress={loadAndPlay}
+                  color={theme.buttonBg}
                 />
               </View>
               <View
