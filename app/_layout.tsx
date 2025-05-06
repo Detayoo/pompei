@@ -61,7 +61,7 @@ export default function RootLayout() {
                 name="music-player"
                 options={{
                   headerShown: false,
-                  gestureEnabled: false,
+                  gestureEnabled: true,
                   presentation: "modal",
                   animation: "default",
                 }}
