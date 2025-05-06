@@ -57,6 +57,15 @@ export default function RootLayout() {
                   gestureEnabled: false,
                 }}
               />
+              <Stack.Screen
+                name="music-player"
+                options={{
+                  headerShown: false,
+                  gestureEnabled: true,
+                  presentation: "modal",
+                  animation: "default",
+                }}
+              />
             </Stack>
           </SafeAreaProvider>
         </BottomSheetModalProvider>
