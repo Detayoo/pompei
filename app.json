@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/pompei-icon.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.adedigba.pomp"
     },
     "web": {
       "bundler": "metro",

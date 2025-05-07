@@ -58,7 +58,7 @@ const CulturePage = () => {
   const [sound, setSound] = useState<any>();
   const [duration, setDuration] = useState<number>(0);
   const [position, setPosition] = useState<number>(0);
-  const interval = useRef<NodeJS.Timer | null>(null);
+  const interval = useRef<any>(null);
 
   const loadAndPlay = async () => {
     const { sound } = await Audio.Sound.createAsync(
