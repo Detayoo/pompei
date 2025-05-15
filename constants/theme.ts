@@ -9,6 +9,7 @@ export const themes = {
     buttonText: "#fff",
     buttonBg: "#000",
     black: "#000",
+    surfaceVariant: "#cc0000",
   },
   dark: {
     background: "#121212",
@@ -20,5 +21,6 @@ export const themes = {
     buttonText: "#000",
     buttonBg: "#fff",
     black: "#000",
+    surfaceVariant: "#cc0000",
   },
 };

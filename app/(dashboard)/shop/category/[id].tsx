@@ -9,54 +9,70 @@ import {
   Platform,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { ArrowLeft, Filter, Heart } from "lucide-react-native";
+// import { StatusBar } from "expo-status-bar";
+// import { ArrowLeft, Filter, Heart } from "lucide-react-native";
 
-import { useTheme } from "@/hooks/useTheme";
-import { products, shopCategories } from "@/constants/shopData";
+import { useTheme } from "@/contexts";
+import { products, shopCategories } from "@/data/shopData";
 
 export default function CategoryScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-  const theme = useTheme();
+  const { theme } = useTheme();
   const [wishlist, setWishlist] = React.useState<string[]>([]);
 
   const category = shopCategories.find((c) => c.id === id) || shopCategories[0];
-  const categoryProducts = products.filter((product) => product.category === category.id);
+  const categoryProducts = products.filter(
+    (product) => product.category === category.id
+  );
 
   const toggleWishlist = (productId: string) => {
-    setWishlist(prev => 
-      prev.includes(productId) 
-        ? prev.filter(id => id !== productId)
+    setWishlist((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
         : [...prev, productId]
     );
   };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <StatusBar style={theme.background === '#FFFFFF' ? "dark" : "light"} />
-      
-      <View style={[styles.header, { backgroundColor: theme.background, borderBottomColor: theme.border }]}>
-        <TouchableOpacity 
+      {/* <StatusBar style={theme.background === '#FFFFFF' ? "dark" : "light"} /> */}
+
+      <View
+        style={[
+          styles.header,
+          {
+            backgroundColor: theme.background,
+            borderBottomColor: theme.border,
+          },
+        ]}
+      >
+        <TouchableOpacity
           onPress={() => router.back()}
           style={styles.backButton}
         >
-          <ArrowLeft size={20} color={theme.text} />
+          {/* <ArrowLeft size={20} color={theme.text} /> */}
         </TouchableOpacity>
-        
-        <Text style={[styles.headerTitle, { color: theme.text }]}>{category.name}</Text>
-        
-        <TouchableOpacity style={[styles.filterButton, { backgroundColor: theme.surfaceVariant }]}>
-          <Filter size={20} color={theme.text} />
+
+        <Text style={[styles.headerTitle, { color: theme.text }]}>
+          {category.name}
+        </Text>
+
+        <TouchableOpacity
+          style={[styles.filterButton, { backgroundColor: theme.secondary }]}
+        >
+          {/* <Filter size={20} color={theme.text} /> */}
         </TouchableOpacity>
       </View>
 
       <View style={styles.resultsHeader}>
-        <Text style={[styles.resultsCount, { color: theme.textSecondary }]}>
+        <Text style={[styles.resultsCount, { color: theme.text }]}>
           {categoryProducts.length} products
         </Text>
         <TouchableOpacity>
-          <Text style={[styles.sortButton, { color: theme.primary }]}>Sort</Text>
+          <Text style={[styles.sortButton, { color: theme.primary }]}>
+            Sort
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -69,7 +85,7 @@ export default function CategoryScreen() {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.productCard}
-            onPress={() => router.push(`/shop/product/${item.id}`)}
+            onPress={() => router.push(`/shop/product/[id]`)}
             activeOpacity={0.8}
           >
             <View style={styles.productImageContainer}>
@@ -77,29 +93,40 @@ export default function CategoryScreen() {
                 source={{ uri: item.imageUrl }}
                 style={styles.productImage}
               />
-              <TouchableOpacity 
-                style={[styles.wishlistButton, { backgroundColor: theme.background }]}
+              <TouchableOpacity
+                style={[
+                  styles.wishlistButton,
+                  { backgroundColor: theme.background },
+                ]}
                 onPress={() => toggleWishlist(item.id)}
               >
-                <Heart 
-                  size={18} 
-                  color={wishlist.includes(item.id) ? theme.primary : theme.text} 
-                  fill={wishlist.includes(item.id) ? theme.primary : 'none'}
-                />
+                {/* <Heart
+                  size={18}
+                  color={
+                    wishlist.includes(item.id) ? theme.primary : theme.text
+                  }
+                  fill={wishlist.includes(item.id) ? theme.primary : "none"}
+                /> */}
               </TouchableOpacity>
               {item.isNew && (
-                <View style={[styles.newBadge, { backgroundColor: theme.primary }]}>
+                <View
+                  style={[styles.newBadge, { backgroundColor: theme.primary }]}
+                >
                   <Text style={styles.newBadgeText}>NEW</Text>
                 </View>
               )}
               {item.discount && (
-                <View style={[styles.saleBadge, { backgroundColor: theme.accent }]}>
+                <View
+                  style={[styles.saleBadge, { backgroundColor: theme.text }]}
+                >
                   <Text style={styles.newBadgeText}>{item.discount}% OFF</Text>
                 </View>
               )}
             </View>
-            <Text style={[styles.productBrand, { color: theme.textSecondary }]}>{item.brand}</Text>
-            <Text 
+            <Text style={[styles.productBrand, { color: theme.text }]}>
+              {item.brand}
+            </Text>
+            <Text
               style={[styles.productName, { color: theme.text }]}
               numberOfLines={1}
             >
@@ -108,13 +135,17 @@ export default function CategoryScreen() {
             <View style={styles.priceContainer}>
               {item.originalPrice ? (
                 <>
-                  <Text style={[styles.salePrice, { color: theme.primary }]}>${item.price}</Text>
-                  <Text style={[styles.originalPrice, { color: theme.textSecondary }]}>
+                  <Text style={[styles.salePrice, { color: theme.primary }]}>
+                    ${item.price}
+                  </Text>
+                  <Text style={[styles.originalPrice, { color: theme.text }]}>
                     ${item.originalPrice}
                   </Text>
                 </>
               ) : (
-                <Text style={[styles.price, { color: theme.text }]}>${item.price}</Text>
+                <Text style={[styles.price, { color: theme.text }]}>
+                  ${item.price}
+                </Text>
               )}
             </View>
           </TouchableOpacity>

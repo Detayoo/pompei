@@ -9,51 +9,50 @@ import {
   Platform,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { ArrowLeft, Heart } from "lucide-react-native";
+// import { StatusBar } from "expo-status-bar";
+// import { ArrowLeft, Heart } from "lucide-react-native";
 
-import { useTheme } from "@/hooks/useTheme";
-import { products, collections } from "@/constants/shopData";
+import { useTheme } from "@/contexts";
+import { products, collections } from "@/data/shopData";
 
 export default function CollectionScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-  const theme = useTheme();
+  const { theme } = useTheme();
   const [wishlist, setWishlist] = React.useState<string[]>([]);
 
   const collection = collections.find((c) => c.id === id) || collections[0];
-  const collectionProducts = products.filter((product) => 
+  const collectionProducts = products.filter((product) =>
     collection.products.includes(product.id)
   );
 
   const toggleWishlist = (productId: string) => {
-    setWishlist(prev => 
-      prev.includes(productId) 
-        ? prev.filter(id => id !== productId)
+    setWishlist((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
         : [...prev, productId]
     );
   };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <StatusBar style="light" />
-      
+      {/* <StatusBar style="light" /> */}
+
       {/* Hero Image */}
       <View style={styles.heroContainer}>
-        <Image
-          source={{ uri: collection.imageUrl }}
-          style={styles.heroImage}
-        />
+        <Image source={{ uri: collection.imageUrl }} style={styles.heroImage} />
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => router.back()}
         >
-          <ArrowLeft size={24} color="#FFFFFF" />
+          {/* <ArrowLeft size={24} color="#FFFFFF" /> */}
         </TouchableOpacity>
-        
+
         <View style={styles.heroOverlay}>
           <Text style={styles.collectionTitle}>{collection.name}</Text>
-          <Text style={styles.collectionDescription}>{collection.description}</Text>
+          <Text style={styles.collectionDescription}>
+            {collection.description}
+          </Text>
         </View>
       </View>
 
@@ -61,14 +60,16 @@ export default function CollectionScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>Collection Products</Text>
-        
+        <Text style={[styles.sectionTitle, { color: theme.text }]}>
+          Collection Products
+        </Text>
+
         <View style={styles.productsGrid}>
           {collectionProducts.map((product) => (
             <TouchableOpacity
               key={product.id}
               style={styles.productCard}
-              onPress={() => router.push(`/shop/product/${product.id}`)}
+              onPress={() => router.push(`/shop/product/[id]`)}
               activeOpacity={0.8}
             >
               <View style={styles.productImageContainer}>
@@ -76,19 +77,26 @@ export default function CollectionScreen() {
                   source={{ uri: product.imageUrl }}
                   style={styles.productImage}
                 />
-                <TouchableOpacity 
-                  style={[styles.wishlistButton, { backgroundColor: theme.background }]}
+                <TouchableOpacity
+                  style={[
+                    styles.wishlistButton,
+                    { backgroundColor: theme.background },
+                  ]}
                   onPress={() => toggleWishlist(product.id)}
                 >
-                  <Heart 
+                  {/* <Heart 
                     size={18} 
                     color={wishlist.includes(product.id) ? theme.primary : theme.text} 
                     fill={wishlist.includes(product.id) ? theme.primary : 'none'}
-                  />
+                  /> */}
                 </TouchableOpacity>
               </View>
-              <Text style={[styles.productBrand, { color: theme.textSecondary }]}>{product.brand}</Text>
-              <Text 
+              <Text
+                style={[styles.productBrand, { color: theme.text }]}
+              >
+                {product.brand}
+              </Text>
+              <Text
                 style={[styles.productName, { color: theme.text }]}
                 numberOfLines={1}
               >
@@ -97,30 +105,52 @@ export default function CollectionScreen() {
               <View style={styles.priceContainer}>
                 {product.originalPrice ? (
                   <>
-                    <Text style={[styles.salePrice, { color: theme.primary }]}>${product.price}</Text>
-                    <Text style={[styles.originalPrice, { color: theme.textSecondary }]}>
+                    <Text style={[styles.salePrice, { color: theme.primary }]}>
+                      ${product.price}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.originalPrice,
+                        { color: theme.text },
+                      ]}
+                    >
                       ${product.originalPrice}
                     </Text>
                   </>
                 ) : (
-                  <Text style={[styles.price, { color: theme.text }]}>${product.price}</Text>
+                  <Text style={[styles.price, { color: theme.text }]}>
+                    ${product.price}
+                  </Text>
                 )}
               </View>
             </TouchableOpacity>
           ))}
         </View>
-        
+
         {/* Editorial Content */}
         <View style={styles.editorialContainer}>
-          <Text style={[styles.editorialTitle, { color: theme.text }]}>The Story</Text>
-          <Text style={[styles.editorialText, { color: theme.textSecondary }]}>
-            This collection embodies the essence of modern elegance with a focus on versatile pieces that transition seamlessly from day to night. Each item is thoughtfully designed with attention to detail and crafted from premium materials.
+          <Text style={[styles.editorialTitle, { color: theme.text }]}>
+            The Story
           </Text>
-          <Text style={[styles.editorialText, { color: theme.textSecondary, marginTop: 16 }]}>
-            Our design team drew inspiration from architectural forms and natural textures, creating a harmonious balance between structure and fluidity. The color palette features rich neutrals punctuated by subtle pops of color.
+          <Text style={[styles.editorialText, { color: theme.text }]}>
+            This collection embodies the essence of modern elegance with a focus
+            on versatile pieces that transition seamlessly from day to night.
+            Each item is thoughtfully designed with attention to detail and
+            crafted from premium materials.
+          </Text>
+          <Text
+            style={[
+              styles.editorialText,
+              { color: theme.text, marginTop: 16 },
+            ]}
+          >
+            Our design team drew inspiration from architectural forms and
+            natural textures, creating a harmonious balance between structure
+            and fluidity. The color palette features rich neutrals punctuated by
+            subtle pops of color.
           </Text>
         </View>
-        
+
         {/* Bottom padding */}
         <View style={styles.bottomPadding} />
       </ScrollView>

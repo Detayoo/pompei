@@ -29,11 +29,11 @@ export default function CultureScreen() {
   });
 
   const navigateToArticle = (id: string) => {
-    router.push(`/culture/article/${id}`);
+    router.push(`/culture/article/[id]`);
   };
 
   const navigateToCategory = (id: string) => {
-    router.push(`/culture/category/${id}`);
+    router.push(`/culture/category/[id]`);
   };
 
   return (

@@ -12,13 +12,13 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 // import { StatusBar } from "expo-status-bar";
-// import {
-//   ChevronRight,
-//   Search,
-//   Heart,
-//   ShoppingBag as ShoppingBagIcon,
-//   ArrowRight
-// } from "lucide-react-native";
+import {
+  ChevronRight,
+  Search,
+  Heart,
+  ShoppingBag as ShoppingBagIcon,
+  ArrowRight,
+} from "lucide-react-native";
 
 import { useTheme } from "@/contexts";
 import { products, shopCategories, collections } from "@/data/shopData";
@@ -40,15 +40,15 @@ export default function ShopScreen() {
   });
 
   const navigateToProduct = (id: string) => {
-    router.push(`/shop/product/${id}`);
+    router.push(`/shop/product/[id]`);
   };
 
   const navigateToCategory = (id: string) => {
-    router.push(`/shop/category/${id}`);
+    router.push(`/shop/category/[id]`);
   };
 
   const navigateToCollection = (id: string) => {
-    router.push(`/shop/collection/${id}`);
+    router.push(`/shop/collection/[id]`);
   };
 
   const toggleWishlist = (productId: string) => {
@@ -226,9 +226,7 @@ export default function ShopScreen() {
                     </View>
                   )}
                 </View>
-                <Text
-                  style={[styles.productBrand, { color: theme.textSecondary }]}
-                >
+                <Text style={[styles.productBrand, { color: theme.text }]}>
                   {product.brand}
                 </Text>
                 <Text
