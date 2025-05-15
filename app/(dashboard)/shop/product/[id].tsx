@@ -367,11 +367,9 @@ export default function ProductScreen() {
           </View>
         </View>
 
-        {/* Bottom padding */}
         <View style={styles.bottomPadding} />
       </ScrollView>
 
-      {/* Add to Cart Button */}
       <View
         style={[
           styles.addToCartContainer,

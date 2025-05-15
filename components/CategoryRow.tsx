@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   Text,
@@ -7,11 +6,11 @@ import {
   TouchableOpacity,
   Platform,
 } from "react-native";
-// import { ChevronRight } from "lucide-react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { StoryCard } from "./StoryCard";
 import { Story } from "@/types";
-// import Colors from "@/constants/colors";
+import { useTheme } from "@/contexts";
 
 interface CategoryRowProps {
   title: string;
@@ -24,12 +23,14 @@ export function CategoryRow({
   stories,
   onStoryPress,
 }: CategoryRowProps) {
+  const { theme } = useTheme();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>{title}</Text>
         <TouchableOpacity>
           {/* <ChevronRight size={20} color={Colors.dark.text} /> */}
+          <Ionicons name="chevron-forward" color={theme.text} size={20} />
         </TouchableOpacity>
       </View>
       <ScrollView

@@ -5,21 +5,16 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   Platform,
   Image,
+  StatusBar,
 } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
-// import { Image as ExpoImage } from "expo-image";
-// import { StatusBar } from "expo-status-bar";
-// import { ArrowLeft, Heart, Share2, Bookmark } from "lucide-react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { StoryCard } from "@/components";
 import { featuredStories } from "@/data/cultureData";
 import { useTheme } from "@/contexts";
-// import Colors from "@/constants/colors";
-
-const { width } = Dimensions.get("window");
 
 export default function ArticleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -36,9 +31,11 @@ export default function ArticleScreen() {
     }
   }, [id]);
 
+  console.log(story?.imageUrl);
+
   return (
     <View style={styles.container}>
-      {/* <StatusBar style="light" /> */}
+      <StatusBar />
       <Stack.Screen
         options={{
           headerShown: false,
@@ -50,18 +47,13 @@ export default function ArticleScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        {/* Hero Image */}
         <View style={styles.heroContainer}>
-          <Image
-            source={{ uri: story.imageUrl }}
-            style={styles.heroImage}
-            // contentFit="cover"
-          />
+          <Image source={{ uri: story.imageUrl }} style={styles.heroImage} />
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => router.back()}
           >
-            {/* <ArrowLeft size={24} color="#FFFFFF" /> */}
+            <Ionicons name="arrow-back" size={24} color={theme.background} />
           </TouchableOpacity>
 
           <View style={styles.heroGradient} />
@@ -71,7 +63,6 @@ export default function ArticleScreen() {
           </View>
         </View>
 
-        {/* Article Content */}
         <View style={styles.articleContainer}>
           <Text style={styles.title}>{story.title}</Text>
 
@@ -79,7 +70,6 @@ export default function ArticleScreen() {
             <Image
               source={{ uri: story.author.avatar }}
               style={styles.authorAvatar}
-              //   contentFit="cover"
             />
             <View>
               <Text style={styles.authorName}>{story.author.name}</Text>
@@ -89,15 +79,15 @@ export default function ArticleScreen() {
 
           <View style={styles.actionRow}>
             <TouchableOpacity style={styles.actionButton}>
-              {/* <Heart size={20} color={theme.text} /> */}
+              <Ionicons name="heart" size={20} color={theme.text} />
               <Text style={styles.actionText}>2.5K</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.actionButton}>
-              {/* <Share2 size={20} color={Colors.dark.text} /> */}
+              <Ionicons name="share-outline" size={20} color={theme.text} />
               <Text style={styles.actionText}>Share</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.actionButton}>
-              {/* <Bookmark size={20} color={Colors.dark.text} /> */}
+              <Ionicons name="bookmark-outline" size={20} color={theme.text} />
               <Text style={styles.actionText}>Save</Text>
             </TouchableOpacity>
           </View>
@@ -120,7 +110,6 @@ export default function ArticleScreen() {
           </View>
         </View>
 
-        {/* Bottom padding for podcast player */}
         <View style={styles.bottomPadding} />
       </ScrollView>
     </View>
@@ -143,6 +132,7 @@ const styles = StyleSheet.create({
   heroImage: {
     width: "100%",
     height: "100%",
+    objectFit: "cover",
   },
   heroGradient: {
     position: "absolute",
@@ -199,11 +189,11 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 20,
     marginRight: 12,
+    objectFit: "cover",
   },
   authorName: {
     fontSize: 16,
     fontWeight: "600",
-    // color: Colors.dark.text,
   },
   publishDate: {
     fontSize: 14,

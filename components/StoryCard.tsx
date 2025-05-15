@@ -49,7 +49,8 @@ export function StoryCard({ story, onPress, small = false }: StoryCardProps) {
           style={[
             {
               fontFamily: Platform.OS === "ios" ? "Georgia" : "serif",
-              fontSize: 16,
+              // fontFamily: 'GeistRegular',
+              fontSize: 15,
               fontWeight: "600",
               marginBottom: 4,
               lineHeight: 22,

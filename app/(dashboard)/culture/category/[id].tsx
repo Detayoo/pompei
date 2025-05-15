@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   Text,
@@ -9,14 +8,14 @@ import {
   StatusBar,
 } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
-// import { StatusBar } from "expo-status-bar";
-// import { ArrowLeft } from "lucide-react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { StoryCard } from "@/components";
 import { featuredStories, categories } from "@/data/cultureData";
-// import Colors from "@/constants/colors";
+import { useTheme } from "@/contexts";
 
 export default function CategoryScreen() {
+  const { theme } = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
 
@@ -27,16 +26,17 @@ export default function CategoryScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar />
       <Stack.Screen
         options={{
+          headerShown: true,
           title: category.name,
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => router.back()}
               style={styles.backButton}
             >
-              {/* <ArrowLeft size={20} color={Colors.dark.text} /> */}
+              <Ionicons name="arrow-back" size={24} color={theme.text} />
             </TouchableOpacity>
           ),
         }}
@@ -78,10 +78,13 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: 8,
-    marginLeft: 8,
+    marginLeft: -12,
+    // backgroundColor: "red",
+    // marginLeft: -30,
   },
   header: {
-    padding: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: "#EEEEEE",
   },
