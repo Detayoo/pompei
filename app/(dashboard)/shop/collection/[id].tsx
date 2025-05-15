@@ -9,8 +9,6 @@ import {
   Platform,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-// import { StatusBar } from "expo-status-bar";
-// import { ArrowLeft, Heart } from "lucide-react-native";
 
 import { useTheme } from "@/contexts";
 import { products, collections } from "@/data/shopData";

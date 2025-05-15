@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
   backButton: {
     padding: 8,
     marginLeft: -12,
-    // backgroundColor: "red",
-    // marginLeft: -30,
   },
   header: {
     paddingVertical: 20,

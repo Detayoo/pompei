@@ -40,15 +40,15 @@ export default function ShopScreen() {
   });
 
   const navigateToProduct = (id: string) => {
-    router.push(`/shop/product/[id]`);
+    router.push(`/shop/product/${id}`);
   };
 
   const navigateToCategory = (id: string) => {
-    router.push(`/shop/category/[id]`);
+    router.push(`/shop/category/${id}`);
   };
 
   const navigateToCollection = (id: string) => {
-    router.push(`/shop/collection/[id]`);
+    router.push(`/shop/collection/${id}`);
   };
 
   const toggleWishlist = (productId: string) => {
