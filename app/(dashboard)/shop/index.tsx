@@ -162,9 +162,7 @@ export default function ShopScreen() {
                 <Text style={[styles.categoryName, { color: theme.text }]}>
                   {category.name}
                 </Text>
-                <Text
-                  style={[styles.categoryCount, { color: theme.text }]}
-                >
+                <Text style={[styles.categoryCount, { color: theme.text }]}>
                   {category.productCount} items
                 </Text>
               </TouchableOpacity>
@@ -205,7 +203,7 @@ export default function ShopScreen() {
                     ]}
                     onPress={() => toggleWishlist(product.id)}
                   >
-                    <Heart
+                    {/* <Heart
                       size={18}
                       color={
                         wishlist.includes(product.id)
@@ -215,7 +213,7 @@ export default function ShopScreen() {
                       fill={
                         wishlist.includes(product.id) ? theme.primary : "none"
                       }
-                    />
+                    /> */}
                   </TouchableOpacity>
                   {product.isNew && (
                     <View
@@ -248,10 +246,7 @@ export default function ShopScreen() {
                         ${product.price}
                       </Text>
                       <Text
-                        style={[
-                          styles.originalPrice,
-                          { color: theme.text },
-                        ]}
+                        style={[styles.originalPrice, { color: theme.text }]}
                       >
                         ${product.originalPrice}
                       </Text>
@@ -350,9 +345,7 @@ export default function ShopScreen() {
                     /> */}
                   </TouchableOpacity>
                 </View>
-                <Text
-                  style={[styles.productBrand, { color: theme.text }]}
-                >
+                <Text style={[styles.productBrand, { color: theme.text }]}>
                   {product.brand}
                 </Text>
                 <Text
