@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     left: 20,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    // backgroundColor: Colors.primary,
+    // backgroundColor: Colors.buttonBg,
     borderRadius: 20,
   },
   categoryText: {

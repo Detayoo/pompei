@@ -70,7 +70,7 @@ export default function CategoryScreen() {
           {categoryProducts.length} products
         </Text>
         <TouchableOpacity>
-          <Text style={[styles.sortButton, { color: theme.primary }]}>
+          <Text style={[styles.sortButton, { color: theme.buttonBg }]}>
             Sort
           </Text>
         </TouchableOpacity>
@@ -103,14 +103,14 @@ export default function CategoryScreen() {
                 {/* <Heart
                   size={18}
                   color={
-                    wishlist.includes(item.id) ? theme.primary : theme.text
+                    wishlist.includes(item.id) ? theme.buttonBg : theme.text
                   }
-                  fill={wishlist.includes(item.id) ? theme.primary : "none"}
+                  fill={wishlist.includes(item.id) ? theme.buttonBg : "none"}
                 /> */}
               </TouchableOpacity>
               {item.isNew && (
                 <View
-                  style={[styles.newBadge, { backgroundColor: theme.primary }]}
+                  style={[styles.newBadge, { backgroundColor: theme.buttonBg }]}
                 >
                   <Text style={styles.newBadgeText}>NEW</Text>
                 </View>
@@ -135,7 +135,7 @@ export default function CategoryScreen() {
             <View style={styles.priceContainer}>
               {item.originalPrice ? (
                 <>
-                  <Text style={[styles.salePrice, { color: theme.primary }]}>
+                  <Text style={[styles.salePrice, { color: theme.buttonBg }]}>
                     ${item.price}
                   </Text>
                   <Text style={[styles.originalPrice, { color: theme.text }]}>

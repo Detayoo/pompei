@@ -21,6 +21,7 @@ export default function ShopLayout() {
         contentStyle: {
           backgroundColor: theme.background,
         },
+        headerShown: false,
       }}
     >
       <Stack.Screen

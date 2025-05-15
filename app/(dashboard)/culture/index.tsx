@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   },
   seeAllText: {
     fontSize: 14,
-    // color: Colors.primary,
+    // color: Colors.buttonBg,
   },
   categoriesContainer: {
     paddingRight: 16,

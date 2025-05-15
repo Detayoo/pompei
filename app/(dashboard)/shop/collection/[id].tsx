@@ -86,14 +86,12 @@ export default function CollectionScreen() {
                 >
                   {/* <Heart 
                     size={18} 
-                    color={wishlist.includes(product.id) ? theme.primary : theme.text} 
-                    fill={wishlist.includes(product.id) ? theme.primary : 'none'}
+                    color={wishlist.includes(product.id) ? theme.buttonBg : theme.text} 
+                    fill={wishlist.includes(product.id) ? theme.buttonBg : 'none'}
                   /> */}
                 </TouchableOpacity>
               </View>
-              <Text
-                style={[styles.productBrand, { color: theme.text }]}
-              >
+              <Text style={[styles.productBrand, { color: theme.text }]}>
                 {product.brand}
               </Text>
               <Text
@@ -105,15 +103,10 @@ export default function CollectionScreen() {
               <View style={styles.priceContainer}>
                 {product.originalPrice ? (
                   <>
-                    <Text style={[styles.salePrice, { color: theme.primary }]}>
+                    <Text style={[styles.salePrice, { color: theme.buttonBg }]}>
                       ${product.price}
                     </Text>
-                    <Text
-                      style={[
-                        styles.originalPrice,
-                        { color: theme.text },
-                      ]}
-                    >
+                    <Text style={[styles.originalPrice, { color: theme.text }]}>
                       ${product.originalPrice}
                     </Text>
                   </>
@@ -139,10 +132,7 @@ export default function CollectionScreen() {
             crafted from premium materials.
           </Text>
           <Text
-            style={[
-              styles.editorialText,
-              { color: theme.text, marginTop: 16 },
-            ]}
+            style={[styles.editorialText, { color: theme.text, marginTop: 16 }]}
           >
             Our design team drew inspiration from architectural forms and
             natural textures, creating a harmonious balance between structure

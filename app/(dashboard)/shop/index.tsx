@@ -122,7 +122,7 @@ export default function ShopScreen() {
               <TouchableOpacity
                 style={[
                   styles.featuredButton,
-                  { backgroundColor: theme.primary },
+                  { backgroundColor: theme.buttonBg },
                 ]}
                 onPress={() => navigateToProduct(featuredProducts[0].id)}
               >
@@ -176,10 +176,10 @@ export default function ShopScreen() {
               New Arrivals
             </Text>
             <TouchableOpacity style={styles.viewAllButton}>
-              <Text style={[styles.viewAllText, { color: theme.primary }]}>
+              <Text style={[styles.viewAllText, { color: theme.buttonBg }]}>
                 View All
               </Text>
-              {/* <ArrowRight size={16} color={theme.primary} /> */}
+              {/* <ArrowRight size={16} color={theme.buttonBg} /> */}
             </TouchableOpacity>
           </View>
 
@@ -207,11 +207,11 @@ export default function ShopScreen() {
                       size={18}
                       color={
                         wishlist.includes(product.id)
-                          ? theme.primary
+                          ? theme.buttonBg
                           : theme.text
                       }
                       fill={
-                        wishlist.includes(product.id) ? theme.primary : "none"
+                        wishlist.includes(product.id) ? theme.buttonBg : "none"
                       }
                     /> */}
                   </TouchableOpacity>
@@ -219,7 +219,7 @@ export default function ShopScreen() {
                     <View
                       style={[
                         styles.newBadge,
-                        { backgroundColor: theme.primary },
+                        { backgroundColor: theme.buttonBg },
                       ]}
                     >
                       <Text style={styles.newBadgeText}>NEW</Text>
@@ -239,7 +239,7 @@ export default function ShopScreen() {
                   {product.originalPrice ? (
                     <>
                       <Text
-                        style={[styles.salePrice, { color: theme.primary }]}
+                        style={[styles.salePrice, { color: theme.buttonBg }]}
                       >
                         ${product.price}
                       </Text>
@@ -299,10 +299,10 @@ export default function ShopScreen() {
               Trending Now
             </Text>
             <TouchableOpacity style={styles.viewAllButton}>
-              <Text style={[styles.viewAllText, { color: theme.primary }]}>
+              <Text style={[styles.viewAllText, { color: theme.buttonBg }]}>
                 View All
               </Text>
-              {/* <ArrowRight size={16} color={theme.primary} /> */}
+              {/* <ArrowRight size={16} color={theme.buttonBg} /> */}
             </TouchableOpacity>
           </View>
 
@@ -334,11 +334,11 @@ export default function ShopScreen() {
                       size={18}
                       color={
                         wishlist.includes(product.id)
-                          ? theme.primary
+                          ? theme.buttonBg
                           : theme.text
                       }
                       fill={
-                        wishlist.includes(product.id) ? theme.primary : "none"
+                        wishlist.includes(product.id) ? theme.buttonBg : "none"
                       }
                     /> */}
                   </TouchableOpacity>

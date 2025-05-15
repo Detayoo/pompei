@@ -13,6 +13,7 @@ export default function CultureLayout() {
           backgroundColor: "#FFFFFF",
         },
         headerShadowVisible: false,
+        headerShown: false,
       }}
     >
       <Stack.Screen
