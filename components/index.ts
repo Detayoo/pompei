@@ -5,3 +5,6 @@ export * from "./Screen";
 export * from "./BottomModal";
 export * from "./BottomSheetModalComponent";
 export * from "./ModalBackground";
+export * from './StoryCard'
+export * from './FeaturedStory'
+export * from './CategoryRow'
