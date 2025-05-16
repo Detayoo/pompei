@@ -81,11 +81,11 @@ const DashboardLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="orders"
+          name="shop"
           options={{
             ...genericOptions,
             tabBarLabelStyle: { fontSize: 12, display: "none" },
-            title: "Orders",
+            title: "Shop",
             tabBarIcon: ({ focused }) => (
               <TabBarIcon
                 focused={focused}
