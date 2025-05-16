@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -24,6 +24,8 @@ export default function ArticleScreen() {
   const router = useRouter();
   const scrollRef = useRef<ScrollView>(null);
   const { theme } = useTheme();
+  const [liked, setLiked] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const story = featuredStories.find((s) => s.id === id) || featuredStories[0];
   const relatedStories = featuredStories.filter((s) => s.id !== id).slice(0, 4);
@@ -37,7 +39,6 @@ export default function ArticleScreen() {
   const shareArticle = async () => {
     const canShare = await Sharing.isAvailableAsync();
     const url = Linking.createURL(`/culture/article/${id}`);
-    console.log("url in share func", url);
     if (canShare) {
       try {
         await Sharing.shareAsync(url, {
@@ -97,8 +98,15 @@ export default function ArticleScreen() {
           </View>
 
           <View style={styles.actionRow}>
-            <TouchableOpacity style={styles.actionButton}>
-              <Ionicons name="heart" size={20} color={theme.text} />
+            <TouchableOpacity
+              onPress={() => setLiked(!liked)}
+              style={styles.actionButton}
+            >
+              <Ionicons
+                name={liked ? "heart" : "heart-outline"}
+                size={20}
+                color={theme.text}
+              />
               <Text style={styles.actionText}>2.5K</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -108,15 +116,24 @@ export default function ArticleScreen() {
               <Ionicons name="share-outline" size={20} color={theme.text} />
               <Text style={styles.actionText}>Share</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.actionButton}>
-              <Ionicons name="bookmark-outline" size={20} color={theme.text} />
+            <TouchableOpacity
+              onPress={() => {
+                Alert.alert(saved ? "Unsaved!" : "Saved!");
+                setSaved(!saved);
+              }}
+              style={styles.actionButton}
+            >
+              <Ionicons
+                name={saved ? "bookmark" : "bookmark-outline"}
+                size={20}
+                color={theme.text}
+              />
               <Text style={styles.actionText}>Save</Text>
             </TouchableOpacity>
           </View>
 
           <Text style={styles.content}>{story.content}</Text>
 
-          {/* Related Stories */}
           <View style={styles.relatedContainer}>
             <Text style={styles.relatedTitle}>Related Stories</Text>
             <View style={styles.relatedGrid}>
