@@ -59,12 +59,12 @@ export default function CultureScreen() {
       : undefined;
   }, [sound]);
 
-  const seconds = Math.floor(((duration - position) % 60000) / 1000);
-  const refinedSeconds = seconds < 10 ? `0${seconds}` : seconds;
-  const minute = Math.floor(((duration - position) % 3600000) / 60000);
-  const refinedMinute = minute < 10 ? `0${minute}` : minute;
-  const hour = Math.floor((duration - position) / 3600000);
-  const refinedHour = hour < 10 ? `0${hour}` : hour;
+  // const seconds = Math.floor(((duration - position) % 60000) / 1000);
+  // const refinedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+  // const minute = Math.floor(((duration - position) % 3600000) / 60000);
+  // const refinedMinute = minute < 10 ? `0${minute}` : minute;
+  // const hour = Math.floor((duration - position) / 3600000);
+  // const refinedHour = hour < 10 ? `0${hour}` : hour;
 
   const headerOpacity = scrollY.interpolate({
     inputRange: [0, 50],
@@ -108,11 +108,11 @@ export default function CultureScreen() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        // onScroll={Animated.event(
-        //   [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-        //   { useNativeDriver: false }
-        // )}
-        // scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: false }
+        )}
+        scrollEventThrottle={16}
       >
         <FeaturedStory
           story={featuredStories[1]}
@@ -140,7 +140,6 @@ export default function CultureScreen() {
                 <Image
                   source={{ uri: category?.imageUrl }}
                   style={styles.categoryImage}
-                  // contentFit="cover"
                 />
                 <Text style={styles.categoryName}>{category.name}</Text>
               </TouchableOpacity>
@@ -166,21 +165,18 @@ export default function CultureScreen() {
           </View>
         </View>
 
-        {/* Latest Stories */}
         <CategoryRow
           title="Latest Stories"
           stories={featuredStories.slice(5, 10)}
           onStoryPress={navigateToArticle}
         />
 
-        {/* Fashion */}
         <CategoryRow
           title="Fashion"
           stories={featuredStories.slice(2, 7)}
           onStoryPress={navigateToArticle}
         />
 
-        {/* Art & Design */}
         <CategoryRow
           title="Art & Design"
           stories={featuredStories.slice(3, 8)}
