@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import * as Sharing from "expo-sharing";
 
 import { StoryCard } from "@/components";
 import { featuredStories } from "@/data/cultureData";
@@ -31,7 +32,18 @@ export default function ArticleScreen() {
     }
   }, [id]);
 
-  console.log(story?.imageUrl);
+  const shareArticle = async () => {
+    const canShare = await Sharing.isAvailableAsync();
+    if (canShare) {
+      await Sharing.shareAsync(
+        `https://${process.env.EXPO_PUBLIC_APP_SCHEME}/culture/article/${id}`,
+        {
+          dialogTitle: "Read article with me",
+          mimeType: "text/plain",
+        }
+      );
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -82,7 +94,10 @@ export default function ArticleScreen() {
               <Ionicons name="heart" size={20} color={theme.text} />
               <Text style={styles.actionText}>2.5K</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.actionButton}>
+            <TouchableOpacity
+              onPress={shareArticle}
+              style={styles.actionButton}
+            >
               <Ionicons name="share-outline" size={20} color={theme.text} />
               <Text style={styles.actionText}>Share</Text>
             </TouchableOpacity>
