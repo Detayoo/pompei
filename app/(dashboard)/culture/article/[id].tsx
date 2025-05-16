@@ -8,10 +8,12 @@ import {
   Platform,
   Image,
   StatusBar,
+  Alert,
 } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import * as Sharing from "expo-sharing";
+import * as Linking from "expo-linking";
 
 import { StoryCard } from "@/components";
 import { featuredStories } from "@/data/cultureData";
@@ -34,14 +36,19 @@ export default function ArticleScreen() {
 
   const shareArticle = async () => {
     const canShare = await Sharing.isAvailableAsync();
+    const url = Linking.createURL(`/culture/article/${id}`);
+    console.log("url in share func", url);
     if (canShare) {
-      await Sharing.shareAsync(
-        `https://${process.env.EXPO_PUBLIC_APP_SCHEME}/culture/article/${id}`,
-        {
+      try {
+        await Sharing.shareAsync(url, {
           dialogTitle: "Read article with me",
           mimeType: "text/plain",
-        }
-      );
+          UTI: "public.plain-text",
+        });
+      } catch (error) {
+        console.log(error);
+        Alert.alert("Something happened, please try again");
+      }
     }
   };
 
