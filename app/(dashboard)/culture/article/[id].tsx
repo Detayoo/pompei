@@ -15,7 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Sharing from "expo-sharing";
 import * as Linking from "expo-linking";
 
-import { StoryCard } from "@/components";
+import { AppText, StoryCard } from "@/components";
 import { featuredStories } from "@/data/cultureData";
 import { useTheme } from "@/contexts";
 
@@ -79,12 +79,12 @@ export default function ArticleScreen() {
           <View style={styles.heroGradient} />
 
           <View style={styles.categoryPill}>
-            <Text style={styles.categoryText}>{story.category}</Text>
+            <AppText style={styles.categoryText}>{story.category}</AppText>
           </View>
         </View>
 
         <View style={styles.articleContainer}>
-          <Text style={styles.title}>{story.title}</Text>
+          <AppText style={styles.title}>{story.title}</AppText>
 
           <View style={styles.authorRow}>
             <Image
@@ -92,8 +92,8 @@ export default function ArticleScreen() {
               style={styles.authorAvatar}
             />
             <View>
-              <Text style={styles.authorName}>{story.author.name}</Text>
-              <Text style={styles.publishDate}>{story.date}</Text>
+              <AppText style={styles.authorName}>{story.author.name}</AppText>
+              <AppText style={styles.publishDate}>{story.date}</AppText>
             </View>
           </View>
 
@@ -107,14 +107,14 @@ export default function ArticleScreen() {
                 size={20}
                 color={theme.text}
               />
-              <Text style={styles.actionText}>2.5K</Text>
+              <AppText style={styles.actionText}>2.5K</AppText>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={shareArticle}
               style={styles.actionButton}
             >
               <Ionicons name="share-outline" size={20} color={theme.text} />
-              <Text style={styles.actionText}>Share</Text>
+              <AppText style={styles.actionText}>Share</AppText>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -128,14 +128,14 @@ export default function ArticleScreen() {
                 size={20}
                 color={theme.text}
               />
-              <Text style={styles.actionText}>Save</Text>
+              <AppText style={styles.actionText}>Save</AppText>
             </TouchableOpacity>
           </View>
 
-          <Text style={styles.content}>{story.content}</Text>
+          <AppText style={styles.content}>{story.content}</AppText>
 
           <View style={styles.relatedContainer}>
-            <Text style={styles.relatedTitle}>Related Stories</Text>
+            <AppText style={styles.relatedTitle}>Related Stories</AppText>
             <View style={styles.relatedGrid}>
               {relatedStories.map((relatedStory: any) => (
                 <StoryCard

@@ -68,7 +68,7 @@ const DetailsPage = () => {
         >
           By Tayo Adedigba | April 14th, 2025
         </AppText>
-        <PrimaryButton title="Go to New" onPress={() => router.push("/new")} />
+        {/* <PrimaryButton title="Go to New" onPress={() => router.push("/new")} /> */}
 
         <AppText
           size="small"

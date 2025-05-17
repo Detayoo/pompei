@@ -12,6 +12,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 
 import { useTheme } from "@/contexts";
 import { products, collections } from "@/data/shopData";
+import { AppText } from "@/components";
 
 export default function CollectionScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -47,10 +48,10 @@ export default function CollectionScreen() {
         </TouchableOpacity>
 
         <View style={styles.heroOverlay}>
-          <Text style={styles.collectionTitle}>{collection.name}</Text>
-          <Text style={styles.collectionDescription}>
+          <AppText style={styles.collectionTitle}>{collection.name}</AppText>
+          <AppText style={styles.collectionDescription}>
             {collection.description}
-          </Text>
+          </AppText>
         </View>
       </View>
 
@@ -58,9 +59,7 @@ export default function CollectionScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        <Text style={[styles.sectionTitle, { color: theme.text }]}>
-          Collection Products
-        </Text>
+        <AppText style={styles.sectionTitle}>Collection Products</AppText>
 
         <View style={styles.productsGrid}>
           {collectionProducts.map((product) => (
@@ -89,29 +88,24 @@ export default function CollectionScreen() {
                   /> */}
                 </TouchableOpacity>
               </View>
-              <Text style={[styles.productBrand, { color: theme.text }]}>
-                {product.brand}
-              </Text>
-              <Text
-                style={[styles.productName, { color: theme.text }]}
-                numberOfLines={1}
-              >
+              <AppText style={[styles.productBrand]}>{product.brand}</AppText>
+              <AppText style={[styles.productName]} numberOfLines={1}>
                 {product.name}
-              </Text>
+              </AppText>
               <View style={styles.priceContainer}>
                 {product.originalPrice ? (
                   <>
-                    <Text style={[styles.salePrice, { color: theme.buttonBg }]}>
+                    <AppText
+                      style={[styles.salePrice, { color: theme.buttonBg }]}
+                    >
                       ${product.price}
-                    </Text>
-                    <Text style={[styles.originalPrice, { color: theme.text }]}>
+                    </AppText>
+                    <AppText style={[styles.originalPrice]}>
                       ${product.originalPrice}
-                    </Text>
+                    </AppText>
                   </>
                 ) : (
-                  <Text style={[styles.price, { color: theme.text }]}>
-                    ${product.price}
-                  </Text>
+                  <AppText style={[styles.price]}>${product.price}</AppText>
                 )}
               </View>
             </TouchableOpacity>
@@ -120,23 +114,21 @@ export default function CollectionScreen() {
 
         {/* Editorial Content */}
         <View style={styles.editorialContainer}>
-          <Text style={[styles.editorialTitle, { color: theme.text }]}>
-            The Story
-          </Text>
-          <Text style={[styles.editorialText, { color: theme.text }]}>
+          <AppText style={[styles.editorialTitle]}>The Story</AppText>
+          <AppText style={[styles.editorialText]}>
             This collection embodies the essence of modern elegance with a focus
             on versatile pieces that transition seamlessly from day to night.
             Each item is thoughtfully designed with attention to detail and
             crafted from premium materials.
-          </Text>
-          <Text
+          </AppText>
+          <AppText
             style={[styles.editorialText, { color: theme.text, marginTop: 16 }]}
           >
             Our design team drew inspiration from architectural forms and
             natural textures, creating a harmonious balance between structure
             and fluidity. The color palette features rich neutrals punctuated by
             subtle pops of color.
-          </Text>
+          </AppText>
         </View>
 
         {/* Bottom padding */}

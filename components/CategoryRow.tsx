@@ -11,6 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { StoryCard } from "./StoryCard";
 import { Story } from "@/types";
 import { useTheme } from "@/contexts";
+import { AppText } from "./AppText";
 
 interface CategoryRowProps {
   title: string;
@@ -27,7 +28,7 @@ export function CategoryRow({
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>{title}</Text>
+        <AppText style={styles.title}>{title}</AppText>
         <TouchableOpacity>
           {/* <ChevronRight size={20} color={Colors.dark.text} /> */}
           <Ionicons name="chevron-forward" color={theme.text} size={20} />

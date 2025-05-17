@@ -14,7 +14,7 @@ const DashboardPage = () => {
       style={{
         flex: 1,
         backgroundColor: theme.background,
-        paddingTop: useSafeAreaInsets().top,
+        // paddingTop: useSafeAreaInsets().top,
         paddingHorizontal: 16,
       }}
     >

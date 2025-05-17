@@ -14,6 +14,8 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 
 import { useTheme } from "@/contexts";
 import { products, shopCategories } from "@/data/shopData";
+import { Ionicons } from "@expo/vector-icons";
+import { AppText } from "@/components";
 
 export default function CategoryScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -52,11 +54,10 @@ export default function CategoryScreen() {
           style={styles.backButton}
         >
           {/* <ArrowLeft size={20} color={theme.text} /> */}
+          <Ionicons name="arrow-back" size={24} color={theme.text} />
         </TouchableOpacity>
 
-        <Text style={[styles.headerTitle, { color: theme.text }]}>
-          {category.name}
-        </Text>
+        <AppText style={[styles.headerTitle]}>{category.name}</AppText>
 
         <TouchableOpacity
           style={[styles.filterButton, { backgroundColor: theme.secondary }]}
@@ -66,13 +67,13 @@ export default function CategoryScreen() {
       </View>
 
       <View style={styles.resultsHeader}>
-        <Text style={[styles.resultsCount, { color: theme.text }]}>
+        <AppText style={[styles.resultsCount]}>
           {categoryProducts.length} products
-        </Text>
+        </AppText>
         <TouchableOpacity>
-          <Text style={[styles.sortButton, { color: theme.buttonBg }]}>
+          <AppText style={[styles.sortButton, { color: theme.buttonBg }]}>
             Sort
-          </Text>
+          </AppText>
         </TouchableOpacity>
       </View>
 
@@ -112,40 +113,37 @@ export default function CategoryScreen() {
                 <View
                   style={[styles.newBadge, { backgroundColor: theme.buttonBg }]}
                 >
-                  <Text style={styles.newBadgeText}>NEW</Text>
+                  <AppText style={styles.newBadgeText}>NEW</AppText>
                 </View>
               )}
               {item.discount && (
                 <View
                   style={[styles.saleBadge, { backgroundColor: theme.text }]}
                 >
-                  <Text style={styles.newBadgeText}>{item.discount}% OFF</Text>
+                  <AppText style={styles.newBadgeText}>
+                    {item.discount}% OFF
+                  </AppText>
                 </View>
               )}
             </View>
-            <Text style={[styles.productBrand, { color: theme.text }]}>
-              {item.brand}
-            </Text>
-            <Text
-              style={[styles.productName, { color: theme.text }]}
-              numberOfLines={1}
-            >
+            <AppText style={[styles.productBrand]}>{item.brand}</AppText>
+            <AppText style={[styles.productName]} numberOfLines={1}>
               {item.name}
-            </Text>
+            </AppText>
             <View style={styles.priceContainer}>
               {item.originalPrice ? (
                 <>
-                  <Text style={[styles.salePrice, { color: theme.buttonBg }]}>
+                  <AppText
+                    style={[styles.salePrice, { color: theme.buttonBg }]}
+                  >
                     ${item.price}
-                  </Text>
-                  <Text style={[styles.originalPrice, { color: theme.text }]}>
+                  </AppText>
+                  <AppText style={[styles.originalPrice]}>
                     ${item.originalPrice}
-                  </Text>
+                  </AppText>
                 </>
               ) : (
-                <Text style={[styles.price, { color: theme.text }]}>
-                  ${item.price}
-                </Text>
+                <AppText style={[styles.price]}>${item.price}</AppText>
               )}
             </View>
           </TouchableOpacity>
@@ -165,8 +163,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    paddingTop: 60,
-    paddingBottom: 16,
+    paddingTop: 30,
     borderBottomWidth: 1,
   },
   backButton: {
