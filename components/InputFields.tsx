@@ -31,7 +31,7 @@ export const TextField = <T,>({
         width: "100%",
       }}
     >
-      <AppText title={label} size="small" />
+      <AppText size="small">{label}</AppText>
       <TextInput
         {...rest}
         value={field.value}
@@ -51,7 +51,9 @@ export const TextField = <T,>({
         }}
       />
       {!!error && (
-        <AppText title={error?.toString()} color="#cc0000" size="small" />
+        <AppText color="#cc0000" size="small">
+          {error?.toString()}
+        </AppText>
       )}
     </View>
   );
@@ -76,7 +78,7 @@ export const PasswordField = <T,>({
         width: "100%",
       }}
     >
-      <AppText title={label} size="small" />
+      <AppText size="small">{label}</AppText>
       <View
         style={{
           borderWidth: 1,
@@ -105,11 +107,13 @@ export const PasswordField = <T,>({
           secureTextEntry={!show}
         />
         <Pressable onPress={() => setShow(!show)}>
-          <AppText title={show ? "Hide" : "Show"} size="small" />
+          <AppText size="small">{show ? "Hide" : "Show"}</AppText>
         </Pressable>
       </View>
       {!!error && (
-        <AppText title={error?.toString()} color="#cc0000" size="small" />
+        <AppText color="#cc0000" size="small">
+          {error?.toString()}
+        </AppText>
       )}
     </View>
   );

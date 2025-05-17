@@ -25,6 +25,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useTheme } from "@/contexts";
 import { products } from "@/data/shopData";
 import { Ionicons } from "@expo/vector-icons";
+import { AppText } from "@/components";
 
 const { width } = Dimensions.get("window");
 
@@ -134,7 +135,7 @@ export default function ProductScreen() {
           <View style={styles.badgesContainer}>
             {product.isNew && (
               <View style={[styles.badge, { backgroundColor: theme.buttonBg }]}>
-                <Text style={styles.badgeText}>NEW</Text>
+                <AppText style={styles.badgeText}>NEW</AppText>
               </View>
             )}
             {product.discount && (
@@ -147,7 +148,9 @@ export default function ProductScreen() {
                   },
                 ]}
               >
-                <Text style={styles.badgeText}>{product.discount}% OFF</Text>
+                <AppText style={styles.badgeText}>
+                  {product.discount}% OFF
+                </AppText>
               </View>
             )}
           </View>
@@ -156,9 +159,9 @@ export default function ProductScreen() {
         {/* Product Info */}
         <View style={styles.infoContainer}>
           <View style={styles.brandRow}>
-            <Text style={[styles.brand, { color: theme.faintText }]}>
+            <AppText style={[styles.brand, { color: theme.faintText }]}>
               {product.brand}
-            </Text>
+            </AppText>
             <View style={styles.actionButtons}>
               <TouchableOpacity
                 style={[styles.actionButton, { backgroundColor: theme.text }]}
@@ -181,42 +184,36 @@ export default function ProductScreen() {
             </View>
           </View>
 
-          <Text style={[styles.productName, { color: theme.text }]}>
-            {product.name}
-          </Text>
+          <AppText style={[styles.productName]}>{product.name}</AppText>
 
           <View style={styles.ratingContainer}>
             <View style={styles.starsContainer}>
               {renderStars(product.rating)}
             </View>
-            <Text style={[styles.reviewCount, { color: theme.text }]}>
+            <AppText style={[styles.reviewCount]}>
               {product.rating} ({product.reviewCount} reviews)
-            </Text>
+            </AppText>
           </View>
 
           <View style={styles.priceContainer}>
             {product.originalPrice ? (
               <>
-                <Text style={[styles.salePrice, { color: theme.buttonBg }]}>
+                <AppText style={[styles.salePrice, { color: theme.buttonBg }]}>
                   ${product.price}
-                </Text>
-                <Text style={[styles.originalPrice, { color: theme.text }]}>
+                </AppText>
+                <AppText style={[styles.originalPrice]}>
                   ${product.originalPrice}
-                </Text>
+                </AppText>
               </>
             ) : (
-              <Text style={[styles.price, { color: theme.text }]}>
-                ${product.price}
-              </Text>
+              <AppText style={[styles.price]}>${product.price}</AppText>
             )}
           </View>
 
           {/* Sizes */}
           {product.sizes && (
             <View style={styles.optionsContainer}>
-              <Text style={[styles.optionTitle, { color: theme.text }]}>
-                Size
-              </Text>
+              <AppText style={[styles.optionTitle]}>Size</AppText>
               <View style={styles.optionsGrid}>
                 {product.sizes.map((size) => (
                   <TouchableOpacity
@@ -234,7 +231,7 @@ export default function ProductScreen() {
                     ]}
                     onPress={() => setSelectedSize(size)}
                   >
-                    <Text
+                    <AppText
                       style={[
                         styles.sizeText,
                         {
@@ -243,7 +240,7 @@ export default function ProductScreen() {
                       ]}
                     >
                       {size}
-                    </Text>
+                    </AppText>
                   </TouchableOpacity>
                 ))}
               </View>
@@ -253,9 +250,7 @@ export default function ProductScreen() {
           {/* Colors */}
           {product.colors && (
             <View style={styles.optionsContainer}>
-              <Text style={[styles.optionTitle, { color: theme.text }]}>
-                Color
-              </Text>
+              <AppText style={[styles.optionTitle]}>Color</AppText>
               <View style={styles.optionsGrid}>
                 {product.colors.map((color) => (
                   <TouchableOpacity
@@ -271,9 +266,7 @@ export default function ProductScreen() {
                     ]}
                     onPress={() => setSelectedColor(color)}
                   >
-                    <Text style={[styles.colorText, { color: theme.text }]}>
-                      {color}
-                    </Text>
+                    <AppText style={[styles.colorText]}>{color}</AppText>
                   </TouchableOpacity>
                 ))}
               </View>
@@ -282,9 +275,7 @@ export default function ProductScreen() {
 
           {/* Quantity */}
           <View style={styles.quantityContainer}>
-            <Text style={[styles.optionTitle, { color: theme.text }]}>
-              Quantity
-            </Text>
+            <AppText style={[styles.optionTitle]}>Quantity</AppText>
             <View style={styles.quantityControls}>
               <TouchableOpacity
                 style={[styles.quantityButton, { backgroundColor: theme.text }]}
@@ -293,9 +284,7 @@ export default function ProductScreen() {
               >
                 {/* <Minus size={16} color={quantity <= 1 ? theme.faintText : theme.text} /> */}
               </TouchableOpacity>
-              <Text style={[styles.quantityText, { color: theme.text }]}>
-                {quantity}
-              </Text>
+              <AppText style={[styles.quantityText]}>{quantity}</AppText>
               <TouchableOpacity
                 style={[
                   styles.quantityButton,
@@ -311,19 +300,15 @@ export default function ProductScreen() {
 
           {/* Description */}
           <View style={styles.descriptionContainer}>
-            <Text style={[styles.descriptionTitle, { color: theme.text }]}>
-              Description
-            </Text>
-            <Text style={[styles.descriptionText, { color: theme.text }]}>
+            <AppText style={[styles.descriptionTitle]}>Description</AppText>
+            <AppText style={[styles.descriptionText]}>
               {product.description}
-            </Text>
+            </AppText>
           </View>
 
           {/* Related Products */}
           <View style={styles.relatedContainer}>
-            <Text style={[styles.relatedTitle, { color: theme.text }]}>
-              You May Also Like
-            </Text>
+            <AppText style={[styles.relatedTitle]}>You May Also Like</AppText>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -347,20 +332,20 @@ export default function ProductScreen() {
                       style={styles.relatedProductImage}
                     />
                   </View>
-                  <Text
-                    style={[styles.relatedProductName, { color: theme.text }]}
+                  <AppText
+                    style={[styles.relatedProductName]}
                     numberOfLines={1}
                   >
                     {relatedProduct.name}
-                  </Text>
-                  <Text
+                  </AppText>
+                  <AppText
                     style={[
                       styles.relatedProductPrice,
                       { color: theme.faintText },
                     ]}
                   >
                     ${relatedProduct.price}
-                  </Text>
+                  </AppText>
                 </TouchableOpacity>
               ))}
             </ScrollView>
@@ -380,7 +365,7 @@ export default function ProductScreen() {
           style={[styles.addToCartButton, { backgroundColor: theme.buttonBg }]}
         >
           {/* <ShoppingBag size={20} color="#FFFFFF" /> */}
-          <Text style={styles.addToCartText}>Add to Cart</Text>
+          <AppText style={styles.addToCartText}>Add to Cart</AppText>
         </TouchableOpacity>
       </View>
     </View>

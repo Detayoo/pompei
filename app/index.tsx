@@ -22,7 +22,7 @@ export default function Index() {
         backgroundColor: theme.background,
       }}
     >
-      <Text style={{ color: theme.text }}>Welcome to pompei</Text>
+      <AppText style={{ color: theme.text }}>Welcome to pompei</AppText>
       <PrimaryButton
         title="Go to dashboard"
         onPress={() => router.push("/(dashboard)")}
@@ -38,7 +38,7 @@ export default function Index() {
         }
       /> */}
 
-      <BottomModal
+      {/* <BottomModal
         closeModal={() => setIsOpen(false)}
         showModal={isOpen}
         sheetRef={sheetRef}
@@ -46,7 +46,7 @@ export default function Index() {
       >
         <AppText color={theme.black}>Hey you</AppText>
         <View style={{ height: 500 }}></View>
-      </BottomModal>
+      </BottomModal> */}
     </View>
   );
 }

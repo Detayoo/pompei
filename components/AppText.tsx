@@ -21,20 +21,14 @@ const sizes = {
 export const AppText = ({ style, color, size, ...rest }: AppTextType) => {
   const { theme } = useTheme();
 
-  return (
-    <Text
-      style={[
-        style,
-        {
-          fontFamily: style?.fontFamily ?? "GeistRegular",
-          color: color ?? theme.text,
-          fontSize:
-            size && sizes[size as keyof typeof sizes]
-              ? sizes[size as keyof typeof sizes]
-              : 16,
-        },
-      ]}
-      {...rest}
-    />
-  );
+  const staticOptions = {
+    fontFamily: style?.fontFamily ?? "GeistRegular",
+    color: style?.color ? style?.color : color ? color : theme.text,
+    fontSize:
+      size && sizes[size as keyof typeof sizes]
+        ? sizes[size as keyof typeof sizes]
+        : 16,
+  };
+
+  return <Text style={[style, staticOptions]} {...rest} />;
 };

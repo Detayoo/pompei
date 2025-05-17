@@ -11,6 +11,7 @@ import {
 
 import { Story } from "@/types";
 import { useTheme } from "@/contexts";
+import { AppText } from "./AppText";
 
 const { width } = Dimensions.get("window");
 const cardWidth = (width - 40) / 2;
@@ -35,7 +36,7 @@ export function StoryCard({ story, onPress, small = false }: StoryCardProps) {
         // contentFit="cover"
       />
       <View style={styles.contentContainer}>
-        <Text
+        <AppText
           style={{
             fontSize: 12,
             color: theme.text,
@@ -44,8 +45,8 @@ export function StoryCard({ story, onPress, small = false }: StoryCardProps) {
           }}
         >
           {story.category}
-        </Text>
-        <Text
+        </AppText>
+        <AppText
           style={[
             {
               fontFamily: Platform.OS === "ios" ? "Georgia" : "serif",
@@ -61,15 +62,15 @@ export function StoryCard({ story, onPress, small = false }: StoryCardProps) {
           numberOfLines={2}
         >
           {story.title}
-        </Text>
-        <Text
+        </AppText>
+        <AppText
           style={{
             fontSize: 12,
             color: theme.text,
           }}
         >
           {story.date}
-        </Text>
+        </AppText>
       </View>
     </TouchableOpacity>
   );

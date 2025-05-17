@@ -12,6 +12,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 
 import { Story } from "@/types/culture";
+import { AppText } from "./AppText";
 
 const { width } = Dimensions.get("window");
 
@@ -38,16 +39,16 @@ export function FeaturedStory({ story, onPress }: FeaturedStoryProps) {
       />
       <View style={styles.contentContainer}>
         <View style={styles.categoryPill}>
-          <Text style={styles.categoryText}>{story.category}</Text>
+          <AppText style={styles.categoryText}>{story.category}</AppText>
         </View>
-        <Text style={styles.title}>{story.title}</Text>
+        <AppText style={styles.title}>{story.title}</AppText>
         <View style={styles.authorRow}>
           <Image
             source={{ uri: story.author.avatar }}
             style={styles.authorAvatar}
             // contentFit="cover"
           />
-          <Text style={styles.authorName}>{story.author.name}</Text>
+          <AppText style={styles.authorName}>{story.author.name}</AppText>
         </View>
       </View>
     </TouchableOpacity>

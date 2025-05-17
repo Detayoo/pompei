@@ -9,6 +9,7 @@ import {
   PressableProps,
   ViewStyle,
 } from "react-native";
+import { AppText } from "./AppText";
 
 type ButtonProps = DefaultButtonProps & {
   title: string;
@@ -43,14 +44,14 @@ export const PrimaryButton = ({
         },
       ]}
     >
-      <Text
+      <AppText
+        color={type === "outline" ? theme.text : theme.buttonText}
         style={{
-          color: type === "outline" ? theme.text : theme.buttonText,
           fontFamily: "GeistRegular",
         }}
       >
         {title}
-      </Text>
+      </AppText>
     </Pressable>
   );
 };

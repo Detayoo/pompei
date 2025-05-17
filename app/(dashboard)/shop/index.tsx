@@ -22,6 +22,7 @@ import {
 
 import { useTheme } from "@/contexts";
 import { products, shopCategories, collections } from "@/data/shopData";
+import { AppText } from "@/components";
 
 const { width } = Dimensions.get("window");
 const FEATURED_HEIGHT = 500;
@@ -112,13 +113,13 @@ export default function ShopScreen() {
             ]}
           >
             <View style={styles.featuredContent}>
-              <Text style={styles.featuredLabel}>FEATURED</Text>
-              <Text style={styles.featuredTitle}>
+              <AppText style={styles.featuredLabel}>FEATURED</AppText>
+              <AppText style={styles.featuredTitle}>
                 {featuredProducts[0].name}
-              </Text>
-              <Text style={styles.featuredBrand}>
+              </AppText>
+              <AppText style={styles.featuredBrand}>
                 {featuredProducts[0].brand}
-              </Text>
+              </AppText>
               <TouchableOpacity
                 style={[
                   styles.featuredButton,
@@ -126,7 +127,7 @@ export default function ShopScreen() {
                 ]}
                 onPress={() => navigateToProduct(featuredProducts[0].id)}
               >
-                <Text style={styles.featuredButtonText}>Shop Now</Text>
+                <AppText style={styles.featuredButtonText}>Shop Now</AppText>
               </TouchableOpacity>
             </View>
           </View>
@@ -134,9 +135,7 @@ export default function ShopScreen() {
 
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={[styles.sectionTitle, { color: theme.text }]}>
-              Shop by Category
-            </Text>
+            <AppText style={[styles.sectionTitle]}>Shop by Category</AppText>
             <TouchableOpacity>
               {/* <ChevronRight size={20} color={theme.text} /> */}
             </TouchableOpacity>
@@ -159,12 +158,10 @@ export default function ShopScreen() {
                     style={styles.categoryImage}
                   />
                 </View>
-                <Text style={[styles.categoryName, { color: theme.text }]}>
-                  {category.name}
-                </Text>
-                <Text style={[styles.categoryCount, { color: theme.text }]}>
+                <AppText style={[styles.categoryName]}>{category.name}</AppText>
+                <AppText style={[styles.categoryCount]}>
                   {category.productCount} items
-                </Text>
+                </AppText>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -172,13 +169,11 @@ export default function ShopScreen() {
 
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={[styles.sectionTitle, { color: theme.text }]}>
-              New Arrivals
-            </Text>
+            <AppText style={[styles.sectionTitle]}>New Arrivals</AppText>
             <TouchableOpacity style={styles.viewAllButton}>
-              <Text style={[styles.viewAllText, { color: theme.buttonBg }]}>
+              <AppText style={[styles.viewAllText, { color: theme.buttonBg }]}>
                 View All
-              </Text>
+              </AppText>
               {/* <ArrowRight size={16} color={theme.buttonBg} /> */}
             </TouchableOpacity>
           </View>
@@ -222,37 +217,28 @@ export default function ShopScreen() {
                         { backgroundColor: theme.buttonBg },
                       ]}
                     >
-                      <Text style={styles.newBadgeText}>NEW</Text>
+                      <AppText style={styles.newBadgeText}>NEW</AppText>
                     </View>
                   )}
                 </View>
-                <Text style={[styles.productBrand, { color: theme.text }]}>
-                  {product.brand}
-                </Text>
-                <Text
-                  style={[styles.productName, { color: theme.text }]}
-                  numberOfLines={1}
-                >
+                <AppText style={[styles.productBrand]}>{product.brand}</AppText>
+                <AppText style={[styles.productName]} numberOfLines={1}>
                   {product.name}
-                </Text>
+                </AppText>
                 <View style={styles.priceContainer}>
                   {product.originalPrice ? (
                     <>
-                      <Text
+                      <AppText
                         style={[styles.salePrice, { color: theme.buttonBg }]}
                       >
                         ${product.price}
-                      </Text>
-                      <Text
-                        style={[styles.originalPrice, { color: theme.text }]}
-                      >
+                      </AppText>
+                      <AppText style={[styles.originalPrice]}>
                         ${product.originalPrice}
-                      </Text>
+                      </AppText>
                     </>
                   ) : (
-                    <Text style={[styles.price, { color: theme.text }]}>
-                      ${product.price}
-                    </Text>
+                    <AppText style={[styles.price]}>${product.price}</AppText>
                   )}
                 </View>
               </TouchableOpacity>
@@ -263,9 +249,7 @@ export default function ShopScreen() {
         {/* Collections */}
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={[styles.sectionTitle, { color: theme.text }]}>
-              Collections
-            </Text>
+            <AppText style={[styles.sectionTitle]}>Collections</AppText>
             <TouchableOpacity>
               {/* <ChevronRight size={20} color={theme.text} /> */}
             </TouchableOpacity>
@@ -283,10 +267,12 @@ export default function ShopScreen() {
                 style={styles.collectionImage}
               />
               <View style={styles.collectionOverlay}>
-                <Text style={styles.collectionTitle}>{collection.name}</Text>
-                <Text style={styles.collectionDescription}>
+                <AppText style={styles.collectionTitle}>
+                  {collection.name}
+                </AppText>
+                <AppText style={styles.collectionDescription}>
                   {collection.description}
-                </Text>
+                </AppText>
               </View>
             </TouchableOpacity>
           ))}
@@ -295,13 +281,11 @@ export default function ShopScreen() {
         {/* Trending Now */}
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={[styles.sectionTitle, { color: theme.text }]}>
-              Trending Now
-            </Text>
+            <AppText style={[styles.sectionTitle]}>Trending Now</AppText>
             <TouchableOpacity style={styles.viewAllButton}>
-              <Text style={[styles.viewAllText, { color: theme.buttonBg }]}>
+              <AppText style={[styles.viewAllText, { color: theme.buttonBg }]}>
                 View All
-              </Text>
+              </AppText>
               {/* <ArrowRight size={16} color={theme.buttonBg} /> */}
             </TouchableOpacity>
           </View>
@@ -343,18 +327,11 @@ export default function ShopScreen() {
                     /> */}
                   </TouchableOpacity>
                 </View>
-                <Text style={[styles.productBrand, { color: theme.text }]}>
-                  {product.brand}
-                </Text>
-                <Text
-                  style={[styles.productName, { color: theme.text }]}
-                  numberOfLines={1}
-                >
+                <AppText style={[styles.productBrand]}>{product.brand}</AppText>
+                <AppText style={[styles.productName]} numberOfLines={1}>
                   {product.name}
-                </Text>
-                <Text style={[styles.price, { color: theme.text }]}>
-                  ${product.price}
-                </Text>
+                </AppText>
+                <AppText style={[styles.price]}>${product.price}</AppText>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -369,18 +346,18 @@ export default function ShopScreen() {
             style={styles.editorialImage}
           />
           <View style={styles.editorialContent}>
-            <Text style={styles.editorialTitle}>THE EDIT</Text>
-            <Text style={styles.editorialSubtitle}>Summer Style Guide</Text>
-            <Text style={styles.editorialDescription}>
+            <AppText style={styles.editorialTitle}>THE EDIT</AppText>
+            <AppText style={styles.editorialSubtitle}>
+              Summer Style Guide
+            </AppText>
+            <AppText style={styles.editorialDescription}>
               Discover this season's essential pieces and how to style them for
               any occasion.
-            </Text>
+            </AppText>
             <TouchableOpacity
               style={[styles.editorialButton, { borderColor: theme.text }]}
             >
-              <Text style={[styles.editorialButtonText, { color: theme.text }]}>
-                Read More
-              </Text>
+              <AppText style={[styles.editorialButtonText]}>Read More</AppText>
             </TouchableOpacity>
           </View>
         </View>

@@ -10,7 +10,7 @@ import {
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 
-import { StoryCard } from "@/components";
+import { AppText, StoryCard } from "@/components";
 import { featuredStories, categories } from "@/data/cultureData";
 import { useTheme } from "@/contexts";
 
@@ -43,8 +43,10 @@ export default function CategoryScreen() {
       />
 
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>{category.name}</Text>
-        <Text style={styles.headerDescription}>{category.description}</Text>
+        <AppText style={styles.headerTitle}>{category.name}</AppText>
+        <AppText style={styles.headerDescription}>
+          {category.description}
+        </AppText>
       </View>
 
       <FlatList
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
   backButton: {
     padding: 8,
     marginLeft: -12,
+    // marginLeft: -30,
   },
   header: {
     paddingVertical: 20,

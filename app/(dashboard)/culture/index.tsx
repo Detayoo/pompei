@@ -18,6 +18,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FeaturedStory, StoryCard, CategoryRow, AppText } from "@/components";
 import { featuredStories, categories } from "@/data/cultureData";
 import { useTheme } from "@/contexts";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function CultureScreen() {
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -80,8 +81,7 @@ export default function CultureScreen() {
     router.push(`/culture/category/${id}`);
 
   return (
-    <View style={styles.container}>
-      <StatusBar />
+    <View style={[styles.container]}>
       <Stack.Screen
         options={{
           title: "CULTURE",
@@ -121,9 +121,9 @@ export default function CultureScreen() {
 
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Categories</Text>
+            <AppText style={styles.sectionTitle}>Categories</AppText>
             {/* <TouchableOpacity>
-              <Text style={styles.seeAllText}>See All</Text>
+              <AppText style={styles.seeAllText}>See All</AppText>
             </TouchableOpacity> */}
           </View>
           <ScrollView
@@ -141,7 +141,7 @@ export default function CultureScreen() {
                   source={{ uri: category?.imageUrl }}
                   style={styles.categoryImage}
                 />
-                <Text style={styles.categoryName}>{category.name}</Text>
+                <AppText style={styles.categoryName}>{category.name}</AppText>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -149,7 +149,7 @@ export default function CultureScreen() {
 
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Editor's Picks</Text>
+            <AppText style={styles.sectionTitle}>Editor's Picks</AppText>
             <TouchableOpacity>
               <Ionicons name="chevron-forward" color={theme.text} size={20} />
             </TouchableOpacity>
