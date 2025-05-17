@@ -38,7 +38,7 @@ export default function Index() {
         }
       /> */}
 
-      <BottomModal
+      {/* <BottomModal
         closeModal={() => setIsOpen(false)}
         showModal={isOpen}
         sheetRef={sheetRef}
@@ -46,7 +46,7 @@ export default function Index() {
       >
         <AppText color={theme.black}>Hey you</AppText>
         <View style={{ height: 500 }}></View>
-      </BottomModal>
+      </BottomModal> */}
     </View>
   );
 }
