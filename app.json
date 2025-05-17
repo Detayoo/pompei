@@ -14,7 +14,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/pompei-icon.jpg",
+        "foregroundImage": "./assets/images/android-pompei-icon.jpg",
         "backgroundColor": "#ffffff"
       },
       "package": "com.adedigba.pomp"
