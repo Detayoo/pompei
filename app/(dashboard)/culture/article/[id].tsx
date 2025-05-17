@@ -9,10 +9,10 @@ import {
   Image,
   StatusBar,
   Alert,
+  Share,
 } from "react-native";
 import { useLocalSearchParams, useRouter, Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import * as Sharing from "expo-sharing";
 import * as Linking from "expo-linking";
 
 import { AppText, StoryCard } from "@/components";
@@ -36,20 +36,17 @@ export default function ArticleScreen() {
     }
   }, [id]);
 
-  const shareArticle = async () => {
-    const canShare = await Sharing.isAvailableAsync();
-    const url = Linking.createURL(`/culture/article/${id}`);
-    if (canShare) {
-      try {
-        await Sharing.shareAsync(url, {
-          dialogTitle: "Read article with me",
-          mimeType: "text/plain",
-          UTI: "public.plain-text",
-        });
-      } catch (error) {
-        console.log(error);
-        Alert.alert("Something happened, please try again");
-      }
+  const url = Linking.createURL(`culture/article/${id}`);
+
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message: `Read with me: ${url}`,
+        url,
+        title: "Read with me",
+      });
+    } catch (error) {
+      console.error("Error sharing:", error);
     }
   };
 
@@ -109,10 +106,7 @@ export default function ArticleScreen() {
               />
               <AppText style={styles.actionText}>2.5K</AppText>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={shareArticle}
-              style={styles.actionButton}
-            >
+            <TouchableOpacity onPress={onShare} style={styles.actionButton}>
               <Ionicons name="share-outline" size={20} color={theme.text} />
               <AppText style={styles.actionText}>Share</AppText>
             </TouchableOpacity>
